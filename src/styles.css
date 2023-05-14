@@ -1,5 +1,24 @@
+@import url("https://byoti-css.netlify.app/components/typography.css");
+@import url("https://byoti-css.netlify.app/components/lists.css");
+@import url("https://byoti-css.netlify.app/components/button.css");
+@import url("https://byoti-css.netlify.app/components/badge.css");
+@import url("https://byoti-css.netlify.app/components/toast.css");
+
+:root{
+  --primary-color: #2dd4bf;
+  --secondary-color: #E5E7EB;
+  --primary-text-color: #fff;
+  --secondary-text-color: #282c3f;
+  --bg-color-primary: #fcfcfc;
+  --bg-color-secondary: rgb(105,110,121);
+  --bg-color-secondary-2: #3f3947;
+}
+
 *, *::before, *::after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-sans; 
+  word-wrap: break-word;
 }
+
