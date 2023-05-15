@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "./Toast.css";
 
 export const Toast = (props) => {
