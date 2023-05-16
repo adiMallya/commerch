@@ -1,10 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar } from "./components";
+import Mockman from "mockman-js";
+import { Loader, Navbar } from "./components";
 import "./styles.css";
+import { useDataContext } from "./contexts/DataContext";
 
 function App() {
+  const { isLoading } = useDataContext();
   return (
     <div className="App">
+      {isLoading && <Loader />}
       <Router>
         <Navbar />
         <Routes>
@@ -18,6 +22,7 @@ function App() {
           <Route path="/cart" />
           <Route path="/checkout" />
           <Route path="/profile" />
+          <Route path="/test" element={<Mockman />} />
         </Routes>
       </Router>
     </div>
