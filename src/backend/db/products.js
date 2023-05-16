@@ -8,6 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
+    brand: "Pink Flyod",
     name: "The Wall Art Hoodie",
     price: 799,
     originalPrice: 1499,
@@ -19,6 +20,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    brand: "Formula 1",
     name: "Monaco Grand Prix Circuit Phone Case",
     price: 599,
     originalPrice: 999,
@@ -30,6 +32,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    brand: "Fully Filmy",
     name: "Pulp Fiction Tribute Poster",
     price: 189,
     originalPrice: 299,
