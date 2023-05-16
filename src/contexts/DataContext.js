@@ -1,14 +1,19 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 import { initialState, dataReducer } from "../reducers/DataReducer";
+import { fetchAllProducts } from "../services";
 
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, initialState);
 
+  useEffect(() => {
+    fetchAllProducts(dispatch);
+  }, []);
+
   return (
-    <DataContext.Provider value={{ state, dispatch }}>
+    <DataContext.Provider value={{ ...state, dispatch }}>
       {children}
     </DataContext.Provider>
   );
