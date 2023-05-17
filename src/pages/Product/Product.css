@@ -1,0 +1,21 @@
+.products__container{
+  display: flex;
+  flex-grow: 1;
+}
+
+.grid-view{
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media  screen and (min-width:768px) {
+  .grid-view{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .grid-view{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

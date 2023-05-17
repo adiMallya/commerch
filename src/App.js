@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Product } from "./pages";
 import Mockman from "mockman-js";
 import { Loader, Navbar } from "./components";
 import "./styles.css";
@@ -13,7 +14,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" />
-          <Route path="/products" />
+          <Route path="/products" element={<Product />} />
           <Route path="/products/:productId" />
           <Route path="/login" />
           <Route path="/signup" />
