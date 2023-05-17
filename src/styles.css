@@ -1,8 +1,10 @@
 @import url("https://byoti-css.netlify.app/components/typography.css");
 @import url("https://byoti-css.netlify.app/components/lists.css");
 @import url("https://byoti-css.netlify.app/components/button.css");
+@import url("https://byoti-css.netlify.app/components/image.css");
 @import url("https://byoti-css.netlify.app/components/badge.css");
 @import url("https://byoti-css.netlify.app/components/toast.css");
+@import url("https://byoti-css.netlify.app/components/cards.css");
 
 :root{
   --primary-color: #2dd4bf;
@@ -12,6 +14,10 @@
   --bg-color-primary: #fcfcfc;
   --bg-color-secondary: rgb(105,110,121);
   --bg-color-secondary-2: #3f3947;
+
+  --font-light: 400;
+  --font-semibold: 600;
+  --font-bolder: bold;
 }
 
 *, *::before, *::after{
