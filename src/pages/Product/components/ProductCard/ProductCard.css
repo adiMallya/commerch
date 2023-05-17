@@ -46,6 +46,7 @@
 .card-header{
   display: flex;
   justify-content: space-between;
+  margin: 0.2rem 0;
 }
 .card-header .card-brand{
   font-weight: var(--font-semibold);
