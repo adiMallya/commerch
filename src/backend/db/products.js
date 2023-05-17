@@ -20,15 +20,15 @@ export const products = [
   },
   {
     _id: uuid(),
-    brand: "Formula 1",
-    name: "Monaco Grand Prix Circuit Phone Case",
+    brand: "Fully Filmy",
+    name: "Don't Mess With John Wick Phone Case",
     price: 599,
     originalPrice: 999,
     averageRating: 3.8,
     category: "Accessories",
     onSale: false,
     inStock: true,
-    img: "https://bit.ly/3BtoaLv",
+    img: "https://bit.ly/436VALw",
   },
   {
     _id: uuid(),
