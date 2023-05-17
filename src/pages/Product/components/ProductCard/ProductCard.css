@@ -1,0 +1,113 @@
+.card{
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 208px;
+  position: relative;
+  cursor: pointer;
+}
+.card:hover{
+  box-shadow: #d6d6d6 0px 5px 15px;
+  transition: 0.3s;
+}
+/* Product Image */
+.img-container .badge--sale{
+  position: absolute;
+  top: 1rem;
+  left: 0;
+}
+.img-container .badge--rating{
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  margin: 0.25rem;
+  padding: 0.2rem 0.75rem;
+  background-color: var(--bg-color-primary);
+  opacity: 0.8;
+  color: var(--secondary-text-color);
+  font-size: 0.85rem;
+  font-weight: var(--font-semibold);
+  display: flex;
+  align-items: center;
+}
+.badge--rating .star{
+  margin-left: 0.3rem;
+  color: var(--primary-color);
+}
+/* Product info */
+.card-info{
+  padding:  0 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+}
+.card-header .card-brand{
+  font-weight: var(--font-semibold);
+  margin: 0;
+}
+.card-header .wishlist-btn{
+  padding: 0.2rem 0;
+}
+
+.card-desc{
+  display: block;
+  max-width: calc(208px - 3rem);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+  font-size: 0.75rem;
+  font-weight: var(--font-light);
+  color: var(--secondary-text-color);
+}
+/* Product price */
+.card-price{
+  display: flex;
+  font-weight: var(--font-semibold);
+}
+.card-price .disc-price{
+  padding-right: 0.45rem;
+  display: inline;
+}
+.card-price .orig-price{
+  color: #a6a6a6;
+  text-decoration: line-through;
+  align-self: end;
+  padding-right: 0.45rem;
+}
+.card-price .disc-percent{
+  font-size: 0.75rem;
+  align-self: flex-end;
+  color: var(--primary-color);
+}
+/* CTA */
+.add-btn{
+  margin: 5px !important;
+  width: 95%;
+  font-weight: var(--font-semibold);
+}
+/* Media queries */
+@media  screen and (min-width: 768px) {
+ .card-brand{
+  font-size: 1.25rem;
+ } 
+ .card-desc{
+  font-size: 1rem;
+ }
+ .card-price{
+  font-size: 1.1rem;
+ }
+ .disc-percent, .orig-price{
+  font-size: 0.85rem;
+ }
+ .btn{
+  font-size: 1.125rem !important;
+ }
+}
