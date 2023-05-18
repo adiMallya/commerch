@@ -70,17 +70,15 @@
 }
 /* Product price */
 .card-price{
-  display: flex;
+  margin: 0.3rem 0;
   font-weight: var(--font-semibold);
 }
 .card-price .disc-price{
   padding-right: 0.45rem;
-  display: inline;
 }
 .card-price .orig-price{
   color: #a6a6a6;
   text-decoration: line-through;
-  align-self: end;
   padding-right: 0.45rem;
 }
 .card-price .disc-percent{
@@ -90,7 +88,7 @@
 }
 /* CTA */
 .add-btn{
-  margin: 5px !important;
+  margin: 0.3rem !important;
   width: 95%;
   font-weight: var(--font-semibold);
 }

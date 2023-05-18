@@ -51,9 +51,9 @@ export const ProductCard = ({ product }) => {
             </span>
           </div>
           <div className="card-price">
-            <p className="disc-price">₹ {price}</p>
-            <p className="orig-price">₹ {originalPrice}</p>
-            <p className="disc-percent">{`(35% OFF)`}</p>
+            <span className="disc-price">₹ {price}</span>
+            <span className="orig-price">₹ {originalPrice}</span>
+            <span className="disc-percent">{`(35% OFF)`}</span>
           </div>
         </div>
         <button className="btn btn--primary-text-icon add-btn">
