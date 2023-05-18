@@ -1,1 +1,1 @@
-export { fetchAllProducts } from "./product.service";
+export { fetchAllProducts, fetchAllCategories } from "./product.service";
