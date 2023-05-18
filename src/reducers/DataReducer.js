@@ -76,14 +76,15 @@ export function dataReducer(state, { type, payload }) {
             : state.filters.categoryType.filter((cat) => cat !== categoryValue),
         },
       };
-    case ACTION_TYPE.CLEAR_ALL:
+    case ACTION_TYPE.CLEAR_FILTER:
       return {
         ...state,
+        products: [...payload],
         filters: {
           searchValue: "",
           sortBy: null,
           inStock: false,
-          priceRange: 500,
+          ratingRange: 3.5,
           categoryType: [],
         },
       };
