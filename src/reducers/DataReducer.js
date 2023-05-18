@@ -1,13 +1,14 @@
 import { ACTION_TYPE } from "../utils";
 
 export const initialState = {
+  categories: [],
   products: [],
   filters: {
     searchValue: "",
     sortBy: null,
     inStock: false,
     ratingRange: 3.5,
-    categories: [],
+    categoryType: [],
   },
   toast: {
     type: "info",
@@ -19,6 +20,12 @@ export const initialState = {
 
 export function dataReducer(state, { type, payload }) {
   switch (type) {
+    case ACTION_TYPE.INIT_CATEGORIES:
+      return {
+        ...state,
+        categories: [...payload],
+        isLoading: false,
+      };
     case ACTION_TYPE.INIT_PRODUCTS:
       return {
         ...state,
@@ -64,9 +71,9 @@ export function dataReducer(state, { type, payload }) {
         ...state,
         filters: {
           ...state.filters,
-          categories: isChecked
-            ? [...state.filters.categories, categoryValue]
-            : state.filters.categories.filter((cat) => cat !== categoryValue),
+          categoryType: isChecked
+            ? [...state.filters.categoryType, categoryValue]
+            : state.filters.categoryType.filter((cat) => cat !== categoryValue),
         },
       };
     case ACTION_TYPE.CLEAR_ALL:
@@ -77,7 +84,7 @@ export function dataReducer(state, { type, payload }) {
           sortBy: null,
           inStock: false,
           priceRange: 500,
-          categories: [],
+          categoryType: [],
         },
       };
     case ACTION_TYPE.SHOW_TOAST:
