@@ -2,7 +2,7 @@
   margin: 1rem;
   display: flex;
   flex-direction: column;
-  max-width: 208px;
+  width: 160px;
   position: relative;
   cursor: pointer;
 }
@@ -94,6 +94,9 @@
 }
 /* Media queries */
 @media  screen and (min-width: 768px) {
+  .card{
+    width: 208px;
+  }
  .card-brand{
   font-size: 1.25rem;
  } 
@@ -107,6 +110,6 @@
   font-size: 0.85rem;
  }
  .btn{
-  font-size: 1.125rem !important;
+  font-size: 1rem !important;
  }
 }
