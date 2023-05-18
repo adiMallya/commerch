@@ -8,7 +8,7 @@
 
 :root{
   --primary-color: #2dd4bf;
-  --secondary-color: #E5E7EB;
+  --secondary-color: #e9e9ed;
   --primary-text-color: #fff;
   --secondary-text-color: #282c3f;
   --bg-color-primary: #fcfcfc;
@@ -17,7 +17,7 @@
 
   --font-light: 400;
   --font-semibold: 600;
-  --font-bolder: bold;
+  --font-bold: bold;
 }
 
 *, *::before, *::after{
@@ -28,3 +28,7 @@
   word-wrap: break-word;
 }
 
+.row{
+  display: flex;
+  flex-grow: 1;
+}
