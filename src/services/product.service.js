@@ -20,3 +20,23 @@ export const fetchAllProducts = async (dispatch) => {
     console.log(error);
   }
 };
+
+export const fetchAllCategories = async (dispatch) => {
+  try {
+    const {
+      data: { categories },
+    } = await axios.get("/api/categories");
+    if (categories) {
+      dispatch({
+        type: ACTION_TYPE.INIT_CATEGORIES,
+        payload: categories,
+      });
+    }
+  } catch (error) {
+    dispatch({
+      type: ACTION_TYPE.SHOW_ERROR,
+      payload: "Couldn't fetch categories",
+    });
+    console.log(error);
+  }
+};
