@@ -26,19 +26,21 @@ export function Product() {
   }, []);
 
   return (
-    <main className="row">
-      <Filters />
-      <section className="products__container grid-view">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))
-        ) : (
-          <>
-            <h2>No Products Found</h2>
-          </>
-        )}
-      </section>
+    <main className="page">
+      <div className="row">
+        <Filters />
+        <section className="products__container grid-view">
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))
+          ) : (
+            <>
+              <h2>No Products Found</h2>
+            </>
+          )}
+        </section>
+      </div>
     </main>
   );
 }

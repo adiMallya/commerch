@@ -28,6 +28,10 @@
   word-wrap: break-word;
 }
 
+.page {
+  min-height: calc(100vh - (20vh + 10rem));
+}
+
 .row{
   display: flex;
   flex-grow: 1;
