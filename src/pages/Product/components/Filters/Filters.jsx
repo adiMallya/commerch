@@ -25,7 +25,7 @@ export const Filters = () => {
   };
 
   return (
-    <section className="filter__container">
+    <aside className="filter__container">
       <div className="filter-header">
         <span className="filter-title" role="heading">
           Filters
@@ -134,6 +134,6 @@ export const Filters = () => {
           </label>
         </div>
       </div>
-    </section>
+    </aside>
   );
 };
