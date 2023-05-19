@@ -4,6 +4,7 @@
 }
 .grid-view{
   display: grid;
+  gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);
 }
 
