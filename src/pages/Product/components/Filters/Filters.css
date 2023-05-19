@@ -4,10 +4,11 @@
   height: 100%;
   position: fixed;
   left: 0;
-  z-index: 999;
-  background-color: #fff;
+  z-index: 5;
+  background-color: var(--bg-color-primary);
   margin-top: 0.625rem;
   padding: 1.2rem 1.5rem 0 1.5rem;
+  border-top: 1px solid var(--secondary-color);
   border-right: 1px solid var(--secondary-color);
 }
 
@@ -60,7 +61,16 @@
   color: var(--primary-color);
   cursor: pointer;
 }
-
+/* Filter Drawer */
+.drawer-open{
+  left: 0;
+  transition: left 0.5s ease-out;
+}
+.drawer-close{
+  left: -30.875rem;
+  transition: left 0.5s ease-out;
+}
+/* Media queries */
 @media screen and (min-width: 768px){
   .filter__container{
     position: sticky;
