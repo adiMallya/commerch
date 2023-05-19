@@ -1,13 +1,14 @@
 .filter__container{
-  display: flex;
-  flex-direction: column;
   min-width: 252px;
   width: 10rem;
+  height: 100%;
   position: fixed;
-  z-index: var(--z-index-6);
-  background-color: var(--bg-secondary-color);
+  left: 0;
+  z-index: 999;
+  background-color: #fff;
   margin-top: 0.625rem;
-  padding: 1.2rem 1.5rem;
+  padding: 1.2rem 1.5rem 0 1.5rem;
+  border-right: 1px solid var(--secondary-color);
 }
 
 .filter-header{
@@ -27,7 +28,6 @@
 .filter-category{
   padding: 1.25rem 0 1rem 0;
   border-bottom: 1px solid var(--secondary-color);
-  border-right: 1px solid var(--secondary-color);
   display: block;
 }
 
@@ -61,3 +61,9 @@
   cursor: pointer;
 }
 
+@media screen and (min-width: 768px){
+  .filter__container{
+    position: sticky;
+    top: 1rem;
+  }
+}
