@@ -2,8 +2,10 @@
   margin: 1rem;
   display: flex;
   flex-direction: column;
-  width: 160px;
+  min-width: 208px;
+  width: 10rem;
   position: relative;
+  background-color: var(--bg-color-primary);
   cursor: pointer;
 }
 .card:hover{
@@ -64,13 +66,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   flex-grow: 1;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: var(--font-light);
   color: var(--secondary-text-color);
 }
 /* Product price */
 .card-price{
   margin: 0.3rem 0;
+  font-size: 0.85rem;
   font-weight: var(--font-semibold);
 }
 .card-price .disc-price{
@@ -82,7 +85,6 @@
   padding-right: 0.45rem;
 }
 .card-price .disc-percent{
-  font-size: 0.75rem;
   align-self: flex-end;
   color: var(--primary-color);
 }
@@ -94,9 +96,6 @@
 }
 /* Media queries */
 @media  screen and (min-width: 768px) {
-  .card{
-    width: 208px;
-  }
  .card-brand{
   font-size: 1.25rem;
  } 
@@ -104,7 +103,7 @@
   font-size: 1rem;
  }
  .card-price{
-  font-size: 1.1rem;
+  font-size: 1rem;
  }
  .disc-percent, .orig-price{
   font-size: 0.85rem;
