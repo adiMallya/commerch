@@ -28,6 +28,11 @@
   word-wrap: break-word;
 }
 
+body{
+  width: fit-content;
+  min-height: 100vh;
+}
+
 .page {
   min-height: calc(100vh - (20vh + 10rem));
 }
