@@ -7,6 +7,8 @@ export const Filters = () => {
     categories,
     products,
     filters: { sortBy, ratingRange, inStock, categoryType },
+    drawerOpen,
+    setDrawerOpen,
     dispatch,
   } = useDataContext();
 
@@ -25,7 +27,11 @@ export const Filters = () => {
   };
 
   return (
-    <aside className="filter__container">
+    <aside
+      className={`filter__container ${
+        drawerOpen ? "drawer-open" : "drawer-close"
+      }`}
+    >
       <div className="filter-header">
         <span className="filter-title" role="heading">
           Filters
@@ -33,7 +39,10 @@ export const Filters = () => {
         <span
           className="clear-btn"
           role="button"
-          onClick={() => onChangeHandler(ACTION_TYPE.CLEAR_FILTER, products)}
+          onClick={() => {
+            onChangeHandler(ACTION_TYPE.CLEAR_FILTER, products);
+            setDrawerOpen(!drawerOpen);
+          }}
         >
           Clear All
         </span>

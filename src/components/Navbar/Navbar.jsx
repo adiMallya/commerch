@@ -1,18 +1,25 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
-
+import { useDataContext } from "../../contexts";
 import "./Navbar.css";
 
 export const Navbar = () => {
+  const location = useLocation();
+  const { setDrawerOpen } = useDataContext();
   return (
     <header className="nav-header">
       <nav className="navbar">
         <div className="nav-section">
-          <div className="navbar-toggler nav-section__items">
-            <div className="line1"></div>
-            <div className="line2"></div>
-            <div className="line3"></div>
-          </div>
+          {location.pathname.includes("products") && (
+            <div
+              className="navbar-toggler nav-section__items"
+              onClick={() => setDrawerOpen((prev) => !prev)}
+            >
+              <div className="line1"></div>
+              <div className="line2"></div>
+              <div className="line3"></div>
+            </div>
+          )}
 
           <div className="navbar-brand-title nav-section__items">
             <Link className="link-no-style" to="/">

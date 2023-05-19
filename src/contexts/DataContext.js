@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 
 import { initialState, dataReducer } from "../reducers/DataReducer";
 import { fetchAllProducts, fetchAllCategories } from "../services";
@@ -7,6 +13,7 @@ const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, initialState);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
     fetchAllCategories(dispatch);
@@ -14,7 +21,9 @@ const DataProvider = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ ...state, dispatch }}>
+    <DataContext.Provider
+      value={{ ...state, drawerOpen, setDrawerOpen, dispatch }}
+    >
       {children}
     </DataContext.Provider>
   );
