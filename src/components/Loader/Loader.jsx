@@ -30,10 +30,10 @@ export const Loader = () => {
         <path
           fill="none"
           stroke="#ffffff"
-          stroke-width="2.7928"
+          strokeWidth="2.7928"
           d="M82 63H18c-7.2,0-13-5.8-13-13v0c0-7.2,5.8-13,13-13h64c7.2,0,13,5.8,13,13v0C95,57.2,89.2,63,82,63z"
         ></path>
-        <g clip-path="url(#ldio-0nbxvbt8il6r-cp)">
+        <g clipPath="url(#ldio-0nbxvbt8il6r-cp)">
           <g>
             <rect x="-100" y="0" width="25" height="100" fill="#397870"></rect>
             <rect x="-75" y="0" width="25" height="100" fill="#30ad9d"></rect>
