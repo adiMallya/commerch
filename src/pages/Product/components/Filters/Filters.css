@@ -19,7 +19,7 @@
 }
 
 .filter-title{
-  display: inline-block;
+  display: block;
   margin-bottom: 1.125rem;
   text-transform: uppercase;
   font-weight: var(--font-semibold);

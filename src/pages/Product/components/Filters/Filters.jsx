@@ -113,7 +113,7 @@ export const Filters = () => {
               }
               checked={isSortCheck("HIGH_TO_LOW")}
             />
-            <span className="select-desc">Price - Hight To Low</span>
+            <span className="select-desc">Price - High To Low</span>
           </label>
         </div>
       </div>
