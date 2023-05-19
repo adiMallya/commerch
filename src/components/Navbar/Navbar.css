@@ -2,8 +2,7 @@
   min-height: 10vh;
   position: sticky;
   top: 0;
-  z-index: var(--z-index-6);
-  flex-direction: column;
+  z-index: 6;
   box-shadow: 0 0 4px #d6d6d6;
 }
 /* Navbar */
