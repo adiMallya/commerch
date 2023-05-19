@@ -27,7 +27,6 @@ export const ProductCard = ({ product }) => {
             alt={name}
             className="img-res card-img"
             onClick={() => navigate(`/products/${_id}`)}
-            loading="lazy"
           />
           {onSale && (
             <span className="badge bg-secondary badge--sale">On Sale</span>

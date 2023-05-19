@@ -1,7 +1,5 @@
 .card{
-  margin: 1rem;
-  display: flex;
-  flex-direction: column;
+  height: max-content;
   min-width: 208px;
   width: 10rem;
   position: relative;
@@ -10,7 +8,7 @@
 }
 .card:hover{
   box-shadow: #d6d6d6 0px 5px 15px;
-  transition: 0.3s;
+  transition: 0.3s ease-in;
 }
 /* Product Image */
 .img-container .badge--sale{
@@ -65,8 +63,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  flex-grow: 1;
-  font-size: 0.85rem;
   font-weight: var(--font-light);
   color: var(--secondary-text-color);
 }
@@ -103,12 +99,12 @@
   font-size: 1rem;
  }
  .card-price{
-  font-size: 1rem;
+  font-size: 1.1rem;
  }
  .disc-percent, .orig-price{
   font-size: 0.85rem;
  }
  .btn{
-  font-size: 1rem !important;
+  font-size: 1.1rem !important;
  }
 }
