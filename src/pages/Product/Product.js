@@ -28,18 +28,21 @@ export function Product() {
   return (
     <main className="page">
       <div className="row">
+        <p className="title-count">{products.length} Products Found</p>
+      </div>
+      <div className="row">
         <Filters />
-        <section className="products__container grid-view">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
+        {filteredProducts.length < 1 ? (
+          <section className="products__container">
+            <h4>Sorry, no products matched...</h4>
+          </section>
+        ) : (
+          <section className="products__container grid-view">
+            {filteredProducts.map((product) => (
               <ProductCard key={product._id} product={product} />
-            ))
-          ) : (
-            <>
-              <h2>No Products Found</h2>
-            </>
-          )}
-        </section>
+            ))}
+          </section>
+        )}
       </div>
     </main>
   );
