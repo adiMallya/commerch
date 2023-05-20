@@ -1,6 +1,6 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
-import { useDataContext } from "../../contexts";
+import { useDataContext, useAuthContext } from "../../contexts";
 import "./Navbar.css";
 import { ACTION_TYPE } from "../../utils";
 import { useState } from "react";
@@ -9,6 +9,7 @@ export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { setDrawerOpen, dispatch } = useDataContext();
+  const { user } = useAuthContext();
 
   const [input, setInput] = useState("");
 
@@ -82,10 +83,13 @@ export const Navbar = () => {
           </li>
           <li className="list__inline-item">
             <NavLink className="nav-icon-link" to="/profile">
-              {/* <span className="nav-icon">
-                <FaUser title="Profile" />
-              </span> */}
-              <span className="login-btn">Login</span>
+              {user?.token ? (
+                <span className="nav-icon">
+                  <FaUser title="Profile" />
+                </span>
+              ) : (
+                <span className="login-btn">Login</span>
+              )}
             </NavLink>
           </li>
         </ul>
