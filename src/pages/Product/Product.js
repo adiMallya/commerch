@@ -10,6 +10,7 @@ export function Product() {
   const {
     products,
     filters: { sortBy, ratingRange, searchValue, inStock, categoryType },
+    setDrawerOpen,
   } = useDataContext();
 
   const sortedProducts = getSortedData(products, sortBy);
@@ -26,7 +27,7 @@ export function Product() {
   }, []);
 
   return (
-    <main className="page">
+    <main className="page" onClick={() => setDrawerOpen(false)}>
       <div className="row">
         <p className="title-count">{products.length} Products Found</p>
       </div>

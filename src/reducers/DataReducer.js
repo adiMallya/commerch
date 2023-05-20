@@ -11,7 +11,7 @@ export const initialState = {
     categoryType: [],
   },
   toast: {
-    type: "info",
+    type: "success",
     msg: "",
   },
   isLoading: true,
@@ -37,7 +37,7 @@ export function dataReducer(state, { type, payload }) {
         ...state,
         filters: {
           ...state.filters,
-          searchedValue: payload.toLowerCase(),
+          searchValue: payload.toLowerCase(),
         },
       };
     case ACTION_TYPE.SORT_BY:
@@ -91,13 +91,15 @@ export function dataReducer(state, { type, payload }) {
     case ACTION_TYPE.SHOW_TOAST:
       return {
         ...state,
-        toastMsg: payload,
+        toast: {
+          ...state.toast,
+          msg: payload,
+        },
       };
     case ACTION_TYPE.SHOW_ERROR:
       return {
         ...state,
         toast: {
-          ...state.toast,
           type: "error",
           msg: payload,
         },

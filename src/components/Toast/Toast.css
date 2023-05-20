@@ -1,3 +1,60 @@
+.toast{
+  width: fit-content;
+  padding: 1rem 3rem 1rem 1rem;
+  position: fixed;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  display: flex;
+  z-index: var(--z-index-6);
+  transition: 0.2s all;
+}
+.toast-success{
+  background-color: #84f1c9;
+  color: #1b7052;
+}
+.toast-error{
+  background-color: #fcc5c5;;
+  color: #dc3545;
+}
+.toast-info{
+  background-color: #7FD2E6;
+  color: #29438b;
+}
+
 .btn-close{
   background: transparent url("/src/assets/closeIcon.svg") center/1.1em auto no-repeat !important;
+  border: 1px solid transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.75rem;
+  position: absolute;
+  top:0;
+  right:0;
+  opacity: 0.5;
+  cursor: pointer;
+  outline: none;
+  z-index: var(--z-index-1);
+}
+.btn-close:focus{
+  box-shadow: 0 0 0 2px black;
+}
+.btn-close:hover{
+  opacity: 1;
+}
+
+.top-right {
+  top: 1rem;
+  right: 1rem;
+}
+.top-left {
+  top: 1rem;
+  left: 1rem;
+}
+.bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+}
+.bottom-right {
+  bottom: 1rem;
+  right: 1rem;
 }
