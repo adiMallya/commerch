@@ -1,10 +1,13 @@
-import { Navigate, Route } from "react-router-dom";
+import { Navigate, Route, useLocation } from "react-router-dom";
+import { useAuthContext } from "../../contexts";
 
-export const PrivateRoute = ({ path, ...rest }) => {
-  const login = false;
-  return login ? (
-    <Route path={path} {...rest} />
-  ) : (
-    <Navigate to={"/login"} state={{ from: path }} />
-  );
+export const PrivateRoute = ({ children }) => {
+  const location = useLocation();
+  const { user } = useAuthContext();
+
+  if (!user?.token) {
+    return <Navigate to={"/login"} state={{ from: location }} replace />;
+  }
+
+  return children;
 };

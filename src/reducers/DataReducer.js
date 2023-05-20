@@ -106,6 +106,11 @@ export function dataReducer(state, { type, payload }) {
         isLoading: false,
         error: payload,
       };
+    case ACTION_TYPE.SHOW_LOADER:
+      return {
+        ...state,
+        isLoading: payload,
+      };
     default:
       return state;
   }
