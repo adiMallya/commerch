@@ -24,7 +24,7 @@ function App() {
           <Route path="/cart" />
           <Route path="/checkout" />
           <Route path="/profile" />
-          <Route path="/test" element={<Mockman />} />
+          <Route path="/mockman" element={<Mockman />} />
         </Routes>
       </Router>
     </div>
