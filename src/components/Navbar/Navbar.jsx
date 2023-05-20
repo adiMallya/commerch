@@ -1,11 +1,27 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
 import { useDataContext } from "../../contexts";
 import "./Navbar.css";
+import { ACTION_TYPE } from "../../utils";
+import { useState } from "react";
 
 export const Navbar = () => {
   const location = useLocation();
-  const { setDrawerOpen } = useDataContext();
+  const navigate = useNavigate();
+  const { setDrawerOpen, dispatch } = useDataContext();
+
+  const [input, setInput] = useState("");
+
+  const searchHandler = () => {
+    if (input.length > 1 && input !== " ") {
+      dispatch({
+        type: ACTION_TYPE.SEARCH,
+        payload: input,
+      });
+      navigate("/products");
+    }
+  };
+
   return (
     <header className="nav-header">
       <nav className="navbar">
@@ -30,7 +46,7 @@ export const Navbar = () => {
           </div>
         </div>
         <div className="nav-section search-container">
-          <form action="#">
+          <form onSubmit={(e) => e.preventDefault()}>
             <label htmlFor="search" className="search-bar">
               <span className="search-bar-btn" typeof="submit">
                 <FaSearch title="Search" />
@@ -40,6 +56,9 @@ export const Navbar = () => {
                 className="search-bar-input"
                 placeholder="Type to search"
                 name="search"
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={searchHandler}
+                value={input}
               />
             </label>
           </form>
