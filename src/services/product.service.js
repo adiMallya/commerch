@@ -4,9 +4,10 @@ import { ACTION_TYPE } from "../utils";
 export const fetchAllProducts = async (dispatch) => {
   try {
     const {
+      status,
       data: { products },
     } = await axios.get("/api/products");
-    if (products) {
+    if (status === 200) {
       dispatch({
         type: ACTION_TYPE.INIT_PRODUCTS,
         payload: products,
@@ -24,9 +25,10 @@ export const fetchAllProducts = async (dispatch) => {
 export const fetchAllCategories = async (dispatch) => {
   try {
     const {
+      status,
       data: { categories },
     } = await axios.get("/api/categories");
-    if (categories) {
+    if (status === 200) {
       dispatch({
         type: ACTION_TYPE.INIT_CATEGORIES,
         payload: categories,
