@@ -1,17 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Product } from "./pages";
 import Mockman from "mockman-js";
-import { Loader, Navbar } from "./components";
+import { Loader, Navbar, Toast } from "./components";
 import "./styles.css";
 import { useDataContext } from "./contexts/DataContext";
 
 function App() {
-  const { isLoading } = useDataContext();
+  const { isLoading, toast } = useDataContext();
   return (
     <div className="App">
       {isLoading && <Loader />}
       <Router>
         <Navbar />
+        {toast.msg && <Toast />}
         <Routes>
           <Route path="/" />
           <Route path="/products" element={<Product />} />
