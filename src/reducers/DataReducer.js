@@ -37,7 +37,7 @@ export function dataReducer(state, { type, payload }) {
         ...state,
         filters: {
           ...state.filters,
-          searchedValue: payload.toLowerCase(),
+          searchValue: payload.toLowerCase(),
         },
       };
     case ACTION_TYPE.SORT_BY:
