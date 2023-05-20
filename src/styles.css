@@ -55,6 +55,10 @@ html{
   flex-grow: 1;
 }
 
+a:active, a:focus {
+  box-shadow: none !important;
+}
+
 ::-webkit-scrollbar{
   width: 5px;
 }
