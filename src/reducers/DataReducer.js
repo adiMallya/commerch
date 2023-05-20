@@ -104,6 +104,7 @@ export function dataReducer(state, { type, payload }) {
           msg: payload,
         },
         isLoading: false,
+        error: payload,
       };
     default:
       return state;
