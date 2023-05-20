@@ -2,8 +2,8 @@
   min-height: 10vh;
   position: sticky;
   top: 0;
-  z-index: 6;
-  box-shadow: 0 0 4px #d6d6d6;
+  z-index: var(--z-index-6);
+  box-shadow: #d6d6d6 0px 2px 15px;
 }
 /* Navbar */
 .navbar{
@@ -116,6 +116,7 @@
   text-transform: uppercase;
   font-size: 0.75rem;
   border-radius: 0.3rem;
+  gap: 1rem;
 }
 .login-btn:hover{
   background-color: var(--primary-color);
