@@ -8,7 +8,7 @@ import { useState } from "react";
 export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { setDrawerOpen, dispatch } = useDataContext();
+  const { setDrawerOpen, cart, wishlist, dispatch } = useDataContext();
   const { user } = useAuthContext();
 
   const [input, setInput] = useState("");
@@ -69,7 +69,9 @@ export const Navbar = () => {
             <NavLink className="nav-icon-link" to="/wishlist">
               <span className="nav-icon badge-container">
                 <FaHeart title="Wishlist" />
-                <span className="status-badge status-badge--count">0</span>
+                <span className="status-badge status-badge--count">
+                  {wishlist.length}
+                </span>
               </span>
             </NavLink>
           </li>
@@ -77,7 +79,9 @@ export const Navbar = () => {
             <NavLink className="nav-icon-link" to="/cart">
               <span className="nav-icon badge-container">
                 <FaShoppingCart title="Cart" />
-                <span className="status-badge status-badge--count">0</span>
+                <span className="status-badge status-badge--count">
+                  {cart.length}
+                </span>
               </span>
             </NavLink>
           </li>
