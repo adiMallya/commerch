@@ -4,6 +4,7 @@
 @import url("https://byoti-css.netlify.app/components/image.css");
 @import url("https://byoti-css.netlify.app/components/badge.css");
 @import url("https://byoti-css.netlify.app/components/cards.css");
+@import './pages/Product/components/ProductCard/ProductCard.css';
 
 :root{
   --primary-color: #2dd4bf;
@@ -53,10 +54,33 @@ html{
   flex-direction: column;
 }
 
+.page-heading{
+  margin: 0.5rem auto 1rem auto;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.display-flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.display-flex-column{
+  display: flex;
+  flex-direction: column;
+}
+.flex-items{
+  margin: 1rem 1rem 1rem 0;
+}
+
 .row{
   display: flex;
-  align-items: stretch;
-  flex-grow: 1;
+  /* align-items: center; */
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.grid-view{
+  display: grid;
+  gap: 1rem 2rem;
 }
 
 /* Extras */
@@ -70,7 +94,19 @@ a:active, a:focus, button:focus {
   background-color: var(--primary-color);
 }
 .background--gradient{
-background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #BDFFF3, #4AC29A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #BDFFF3, #4AC29A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
+/* Media queries */
+@media  screen and (min-width:768px) {
+  .grid-view{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px){
+  .grid-view{
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
