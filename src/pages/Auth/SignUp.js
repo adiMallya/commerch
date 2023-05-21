@@ -38,7 +38,7 @@ export function SignUp() {
     document.title = "commerch | sign-up";
   }, []);
   return (
-    <main className="page">
+    <main className="page background--gradient">
       <div className="auth__container">
         <div className="auth-title">
           <span role="heading">Sign Up</span>

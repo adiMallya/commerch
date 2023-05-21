@@ -10,10 +10,12 @@
   --secondary-color: #e9e9ed;
   --primary-text-color: #fff;
   --secondary-text-color: #282c3f;
+
   --bg-color-primary: #fcfcfc;
   --bg-color-secondary: rgb(105,110,121);
   --bg-color-secondary-2: #3f3947;
-
+  --bg-color-gradient: #0cebeb;  /* fallback for old browsers */
+  
   --font-light: 400;
   --font-semibold: 600;
   --font-bold: bold;
@@ -46,7 +48,9 @@ html{
 }
 
 .page {
-  min-height: calc(100vh - (20vh + 10rem));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .row{
@@ -55,13 +59,17 @@ html{
   flex-grow: 1;
 }
 
+/* Extras */
 a:active, a:focus {
   box-shadow: none !important;
 }
-
 ::-webkit-scrollbar{
   width: 5px;
 }
 ::-webkit-scrollbar-track{
-  background-color: var(--bg-color-primary);
+  background-color: var(--primary-color);
+}
+.background--gradient{
+  background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
