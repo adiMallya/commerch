@@ -43,7 +43,7 @@ export function Login() {
     document.title = "commerch | login";
   }, []);
   return (
-    <main className="page">
+    <main className="page background--gradient">
       <div className="auth__container">
         <div className="auth-title">
           <span role="heading">Login</span>
