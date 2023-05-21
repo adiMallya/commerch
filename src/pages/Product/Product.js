@@ -28,9 +28,7 @@ export function Product() {
 
   return (
     <main className="page" onClick={() => setDrawerOpen(false)}>
-      <div className="row">
-        <p className="title-count">{products.length} Products Found</p>
-      </div>
+      <div className="row"></div>
       <div className="row">
         <Filters />
         {filteredProducts.length < 1 ? (
