@@ -14,7 +14,7 @@
   --bg-color-primary: #fcfcfc;
   --bg-color-secondary: rgb(105,110,121);
   --bg-color-secondary-2: #3f3947;
-  --bg-color-gradient: #0cebeb;  /* fallback for old browsers */
+  --bg-color-gradient:#4ac29a; /* fallback for old browsers */
   
   --font-light: 400;
   --font-semibold: 600;
@@ -60,7 +60,7 @@ html{
 }
 
 /* Extras */
-a:active, a:focus {
+a:active, a:focus, button:focus {
   box-shadow: none !important;
 }
 ::-webkit-scrollbar{
@@ -70,6 +70,7 @@ a:active, a:focus {
   background-color: var(--primary-color);
 }
 .background--gradient{
-  background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #BDFFF3, #4AC29A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
