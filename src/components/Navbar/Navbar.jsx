@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaSearch, FaHeart, FaUser } from "react-icons/fa";
+import { RiShoppingBag2Fill } from "react-icons/ri";
 import { useDataContext, useAuthContext } from "../../contexts";
 import "./Navbar.css";
 import { ACTION_TYPE } from "../../utils";
@@ -78,7 +79,7 @@ export const Navbar = () => {
           <li className="list__inline-item">
             <NavLink className="nav-icon-link" to="/cart">
               <span className="nav-icon badge-container">
-                <FaShoppingCart title="Cart" />
+                <RiShoppingBag2Fill title="Bag" />
                 <span className="status-badge status-badge--count">
                   {cart.length}
                 </span>

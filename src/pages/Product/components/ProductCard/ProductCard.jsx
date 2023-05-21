@@ -1,4 +1,5 @@
-import { FaHeart, FaRegHeart, FaStar, FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaStar } from "react-icons/fa";
+import { RiShoppingBag2Fill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 
 import { useAuthContext, useDataContext } from "../../../../contexts";
@@ -100,10 +101,13 @@ export const ProductCard = ({ product }) => {
           onClick={addToCartHandler}
         >
           {inCart ? (
-            "Go To Cart"
+            <span role="button" className="btn-icon">
+              {" "}
+              Go To Bag
+            </span>
           ) : (
             <span role="button" className="btn-icon">
-              <FaShoppingCart /> Add To Cart
+              <RiShoppingBag2Fill /> Add To Bag
             </span>
           )}
         </button>

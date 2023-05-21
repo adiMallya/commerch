@@ -73,7 +73,7 @@ export const WishlistCard = ({ product }) => {
           className="btn btn--primary-outline add-btn"
           onClick={moveToCartHandler}
         >
-          Move To Cart
+          Move To Bag
         </button>
         {!inStock && (
           <div className="overlay-text">
