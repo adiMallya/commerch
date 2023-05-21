@@ -24,7 +24,7 @@ export function Wishlist() {
         </span>
       </div>
       {wishlistIsNotEmpty ? (
-        <section className="wishlist__container">
+        <section className="vertical-middle-self grid-view">
           {wishlist.map((item) => (
             <WishlistCard key={item._id} product={item} />
           ))}
