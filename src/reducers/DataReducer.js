@@ -13,7 +13,7 @@ export const initialState = {
   cart: [],
   wishlist: [],
   toast: {
-    type: "success",
+    type: "info",
     msg: "",
   },
   isLoading: true,
