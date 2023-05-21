@@ -10,6 +10,8 @@ export const initialState = {
     ratingRange: 3.5,
     categoryType: [],
   },
+  cart: [],
+  wishlist: [],
   toast: {
     type: "success",
     msg: "",
@@ -86,6 +88,68 @@ export function dataReducer(state, { type, payload }) {
           inStock: false,
           ratingRange: 3.5,
           categoryType: [],
+        },
+      };
+    case ACTION_TYPE.INIT_CART:
+      return {
+        ...state,
+        cart: [...payload],
+        isLoading: false,
+      };
+    case ACTION_TYPE.ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...payload],
+        toast: {
+          type: "success",
+          msg: "Added to your Cart",
+        },
+      };
+    case ACTION_TYPE.UPDATE_QTY_IN_CART:
+      return {
+        ...state,
+        cart: [...payload],
+      };
+    case ACTION_TYPE.REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: [...payload],
+        toast: {
+          type: "info",
+          msg: "Removed from Cart",
+        },
+      };
+    case ACTION_TYPE.CLEAR_CART:
+      return {
+        ...state,
+        cart: [],
+        toast: {
+          type: "info",
+          msg: "Cleared your Cart",
+        },
+      };
+    case ACTION_TYPE.INIT_WISHLIST:
+      return {
+        ...state,
+        wishlist: [...payload],
+        isLoading: false,
+      };
+    case ACTION_TYPE.MOVE_TO_WISHLIST:
+      return {
+        ...state,
+        wishlist: [...payload],
+        toast: {
+          type: "success",
+          msg: "Moved to your Wishlist",
+        },
+      };
+    case ACTION_TYPE.REMOVE_FROM_WISHLIST:
+      return {
+        ...state,
+        wishlist: [...payload],
+        toast: {
+          type: "info",
+          msg: "Moved out of Wishlist",
         },
       };
     case ACTION_TYPE.SHOW_TOAST:
