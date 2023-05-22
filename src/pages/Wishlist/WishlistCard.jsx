@@ -3,15 +3,15 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
 import { useAuthContext, useDataContext } from "../../contexts";
-import { getDiscountPercentage } from "../../utils";
-import { addToCart, removeFromWishlist } from "../../services";
+import { ACTION_TYPE, getDiscountPercentage, isItemInCart } from "../../utils";
+import { addToCart, removeFromWishlist, updateQtyInCart } from "../../services";
 
 export const WishlistCard = ({ product }) => {
   const navigate = useNavigate();
   const {
     user: { token },
   } = useAuthContext();
-  const { dispatch } = useDataContext();
+  const { cart, dispatch } = useDataContext();
   const {
     _id,
     img,
@@ -26,8 +26,16 @@ export const WishlistCard = ({ product }) => {
   const percentageOff = getDiscountPercentage(price, originalPrice);
 
   const moveToCartHandler = () => {
-    addToCart(token, product, dispatch);
-    removeFromWishlist(product._id, token, dispatch);
+    if (isItemInCart(product._id, cart)) {
+      updateQtyInCart(product._id, token, "increment", dispatch);
+      dispatch({
+        type: ACTION_TYPE.SHOW_TOAST,
+        payload: "Already in Cart. Updated!",
+      });
+    } else {
+      addToCart(token, product, dispatch);
+      removeFromWishlist(product._id, token, dispatch);
+    }
   };
 
   const removeFromWishlistHandler = () => {
