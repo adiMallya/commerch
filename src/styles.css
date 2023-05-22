@@ -70,10 +70,14 @@ html{
 .flex-items{
   margin: 1rem 1rem 1rem 0;
 }
+.justify-between{
+  justify-content: space-between;
+}
 
 .row{
   display: flex;
   /* align-items: center; */
+  flex-grow: 1;
   margin-bottom: 1rem;
   width: 100%;
 }

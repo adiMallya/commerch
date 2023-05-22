@@ -1,0 +1,22 @@
+.cart__container{
+  margin: auto;
+}
+
+.cart-card{
+  display: flex;
+  flex-direction: column;
+  width: 22rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  box-shadow: #d6d6d6 0px 5px 15px;
+}
+
+.btn{
+  font-weight: var(--font-semibold);
+}
+@media screen and (min-width : 768px){
+  .cart-card{
+    width: 25rem;
+  }
+}
+
