@@ -1,24 +1,4 @@
 .products__container{  
-  margin: 0.625rem 1rem 1rem;
+  margin: 0.625rem auto;
   padding: 0 3rem; 
-}
-.grid-view{
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-@media  screen and (min-width:768px) {
-  .products__container{
-    width: 100%;
-  }
-  .grid-view{
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (min-width: 1024px){
-  .grid-view{
-    grid-template-columns: repeat(4, 1fr);
-  }
 }

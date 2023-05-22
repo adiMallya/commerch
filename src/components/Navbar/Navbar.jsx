@@ -1,5 +1,6 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
-import { FaSearch, FaHeart, FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaSearch, FaHeart, FaUser } from "react-icons/fa";
+import { RiShoppingBag2Fill } from "react-icons/ri";
 import { useDataContext, useAuthContext } from "../../contexts";
 import "./Navbar.css";
 import { ACTION_TYPE } from "../../utils";
@@ -8,7 +9,7 @@ import { useState } from "react";
 export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { setDrawerOpen, dispatch } = useDataContext();
+  const { setDrawerOpen, cart, wishlist, dispatch } = useDataContext();
   const { user } = useAuthContext();
 
   const [input, setInput] = useState("");
@@ -69,15 +70,19 @@ export const Navbar = () => {
             <NavLink className="nav-icon-link" to="/wishlist">
               <span className="nav-icon badge-container">
                 <FaHeart title="Wishlist" />
-                <span className="status-badge status-badge--count">0</span>
+                <span className="status-badge status-badge--count">
+                  {wishlist.length}
+                </span>
               </span>
             </NavLink>
           </li>
           <li className="list__inline-item">
             <NavLink className="nav-icon-link" to="/cart">
               <span className="nav-icon badge-container">
-                <FaShoppingCart title="Cart" />
-                <span className="status-badge status-badge--count">0</span>
+                <RiShoppingBag2Fill title="Bag" />
+                <span className="status-badge status-badge--count">
+                  {cart.length}
+                </span>
               </span>
             </NavLink>
           </li>

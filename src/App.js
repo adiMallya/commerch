@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Product, Login, Profile, SignUp } from "./pages";
+import { Product, Login, Profile, SignUp, Wishlist, Cart } from "./pages";
 import Mockman from "mockman-js";
 import { Loader, Navbar, Toast, PrivateRoute } from "./components";
 import "./styles.css";
@@ -19,8 +19,22 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" />
-        <Route path="/wishlist" />
-        <Route path="/cart" />
+        <Route
+          path="/wishlist"
+          element={
+            <PrivateRoute>
+              <Wishlist />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          }
+        />
         <Route path="/checkout" />
         <Route
           path="/profile"
