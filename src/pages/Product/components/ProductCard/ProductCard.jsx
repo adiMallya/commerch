@@ -96,21 +96,24 @@ export const ProductCard = ({ product }) => {
             <span className="disc-percent">{`(${percentageOff}% OFF)`}</span>
           </div>
         </div>
-        <button
-          className="btn btn--primary-text-icon add-btn"
-          onClick={addToCartHandler}
-        >
-          {inCart ? (
-            <span role="button" className="btn-icon">
-              {" "}
-              Go To Bag
-            </span>
-          ) : (
-            <span role="button" className="btn-icon">
-              <RiShoppingBag2Fill /> Add To Bag
-            </span>
-          )}
-        </button>
+        <div className="cta-container">
+          <button
+            className="btn btn--primary-text-icon add-btn"
+            onClick={addToCartHandler}
+          >
+            {inCart ? (
+              <span role="button" className="btn-icon">
+                {" "}
+                Go To Bag
+              </span>
+            ) : (
+              <span role="button" className="btn-icon">
+                <RiShoppingBag2Fill /> Add To Bag
+              </span>
+            )}
+          </button>
+        </div>
+
         {!inStock && (
           <div className="overlay-text">
             <div className="text-container">Out Of Stock</div>
