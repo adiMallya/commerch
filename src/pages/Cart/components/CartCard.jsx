@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
-import { useAuthContext, useDataContext } from "../../../../contexts";
-import { getDiscountPercentage, isItemInWishlist } from "../../../../utils";
+import { useAuthContext, useDataContext } from "../../../contexts";
+import { getDiscountPercentage, isItemInWishlist } from "../../../utils";
 import {
   addToWishlist,
   updateQtyInCart,
   removeFromCart,
-} from "../../../../services";
+} from "../../../services";
 
 export const CartCard = ({ product }) => {
   const navigate = useNavigate();

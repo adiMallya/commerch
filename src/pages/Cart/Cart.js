@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuthContext, useDataContext } from "../../contexts";
 import { clearCart } from "../../services";
 import ShopBag from "../../assets/shop-bag.svg";
-import { CartCard } from "./components/CartCard.jsx/CartCard";
+import { CartCard } from "./components/CartCard";
 import "./Cart.css";
 
 export function Cart() {
