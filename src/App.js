@@ -1,5 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Product, Login, Profile, SignUp, Wishlist, Cart } from "./pages";
+import { Routes, Route } from "react-router-dom";
+import {
+  ProductList,
+  Login,
+  Profile,
+  SignUp,
+  Wishlist,
+  Cart,
+  ProductDetail,
+} from "./pages";
 import Mockman from "mockman-js";
 import { Loader, Navbar, Toast, PrivateRoute } from "./components";
 import "./styles.css";
@@ -14,8 +22,8 @@ function App() {
       {toast.msg && <Toast />}
       <Routes>
         <Route path="/" />
-        <Route path="/products" element={<Product />} />
-        <Route path="/products/:productId" />
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" />

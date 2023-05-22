@@ -6,7 +6,7 @@ import { ProductCard } from "./components/ProductCard/ProductCard";
 import { Filters } from "./components/Filters/Filters";
 import "./Product.css";
 
-export function Product() {
+export function ProductList() {
   const {
     products,
     filters: { sortBy, ratingRange, searchValue, inStock, categoryType },
