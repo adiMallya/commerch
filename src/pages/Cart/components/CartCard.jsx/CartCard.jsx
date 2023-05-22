@@ -31,8 +31,11 @@ export const CartCard = ({ product }) => {
       : addToWishlist(token, product, dispatch);
   };
 
-  const updateItemQtyHandler = (type) =>
-    updateQtyInCart(product._id, token, type, dispatch);
+  const updateItemQtyHandler = (type) => {
+    product.qty < 1
+      ? removeFromCart(product._id, token, dispatch)
+      : updateQtyInCart(product._id, token, type, dispatch);
+  };
 
   return (
     <div key={_id} className="cart-card">
