@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Product, Login, Profile, SignUp, Wishlist } from "./pages";
+import { Product, Login, Profile, SignUp, Wishlist, Cart } from "./pages";
 import Mockman from "mockman-js";
 import { Loader, Navbar, Toast, PrivateRoute } from "./components";
 import "./styles.css";
@@ -27,7 +27,14 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/cart" />
+        <Route
+          path="/cart"
+          element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          }
+        />
         <Route path="/checkout" />
         <Route
           path="/profile"
