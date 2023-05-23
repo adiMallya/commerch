@@ -7,6 +7,7 @@ import {
   Wishlist,
   Cart,
   ProductDetail,
+  NotFoundPage,
 } from "./pages";
 import Mockman from "mockman-js";
 import { Loader, Navbar, Toast, PrivateRoute } from "./components";
@@ -26,7 +27,7 @@ function App() {
         <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="*" />
+        <Route path="*" element={<NotFoundPage />} />
         <Route
           path="/wishlist"
           element={
@@ -45,7 +46,7 @@ function App() {
         />
         <Route path="/checkout" />
         <Route
-          path="/profile"
+          path="/account"
           element={
             <PrivateRoute>
               <Profile />

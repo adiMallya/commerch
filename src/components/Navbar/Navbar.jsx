@@ -87,7 +87,7 @@ export const Navbar = () => {
             </NavLink>
           </li>
           <li className="list__inline-item">
-            <NavLink className="nav-icon-link" to="/profile">
+            <NavLink className="nav-icon-link" to="/account">
               {user?.token ? (
                 <span className="nav-icon">
                   <FaUser title="Profile" />
