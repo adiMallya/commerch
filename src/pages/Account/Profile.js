@@ -15,19 +15,21 @@ export function Profile() {
   }, []);
   return (
     <div className="page">
-      <div className="vertical-middle display-flex-column">
+      <div className="account__container">
         <h3 className="page-heading">My Account</h3>
         <main className="tabs">
           <section className="tab">
             <div className="profile">
-              <h4 className="tab--header">Profile</h4>
+              <span className="tab--header" role="heading">
+                Profile Details
+              </span>
               <div className="profile-details">
-                <div className="row">
+                <div className="col">
                   <span role="label">Name</span>
-                  <span>{`${firstName} ${lastName}`}</span>
-                </div>
-                <div className="row">
                   <span role="label">Email</span>
+                </div>
+                <div className="col">
+                  <span>{`${firstName} ${lastName}`}</span>
                   <span>{email}</span>
                 </div>
               </div>
