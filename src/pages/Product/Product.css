@@ -10,3 +10,33 @@
   margin: 4rem auto;
 }
 
+.product-grid{
+  display: grid;
+  gap: 1rem;
+  width: 15rem;
+}
+.product-grid .image-container{
+  box-shadow: #d6d6d6 0px 5px 15px;
+}
+.product-grid .card-header{
+  border-bottom: 1.5px solid var(--secondary-color);
+}
+.product-grid .badge--rating{
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  border: 1.5px solid var(--secondary-color);
+}
+
+.product-grid button{
+  width: 100%;
+}
+
+@media screen and (min-width: 768px){
+  .product-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 55rem;
+  }
+}

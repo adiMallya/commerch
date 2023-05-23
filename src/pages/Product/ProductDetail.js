@@ -46,7 +46,7 @@ export function ProductDetail() {
   return (
     <main className="page">
       <div className="product-detail__container">
-        <div key={product?._id} className="card-horizontal">
+        <div key={product?._id} className="product-grid">
           <div className="image-container badge-container">
             <img src={product?.img} alt={product?._id} className="img-res" />
             {product?.onSale && (
@@ -57,7 +57,11 @@ export function ProductDetail() {
             <div className="card-header">
               <div>
                 <p className="card-brand">{product?.brand}</p>
-                <p className="card-desc">{product?.name}</p>
+                <p className="card-name">{product?.name}</p>
+                <span className="badge--rating">
+                  {product?.averageRating}
+                  <FaStar className="star" />
+                </span>
               </div>
             </div>
             <div className="card-price">
@@ -65,7 +69,7 @@ export function ProductDetail() {
               <span className="orig-price">₹ {product?.originalPrice}</span>
               <span className="disc-percent">{`(${percentageOff}% OFF)`}</span>
             </div>
-            <div className="cta-container">
+            <div className="display-flex">
               <button
                 className="btn btn--primary-text-icon"
                 onClick={addToCartHandler}
