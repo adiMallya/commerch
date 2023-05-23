@@ -45,7 +45,7 @@ function App() {
         />
         <Route path="/checkout" />
         <Route
-          path="/profile"
+          path="/account"
           element={
             <PrivateRoute>
               <Profile />
