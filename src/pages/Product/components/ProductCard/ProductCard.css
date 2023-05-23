@@ -49,6 +49,7 @@
   margin: 0.2rem 0;
 }
 .card-header .card-brand{
+  text-transform: uppercase;
   font-weight: var(--font-semibold);
   margin: 0;
 }
