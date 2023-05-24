@@ -68,7 +68,6 @@ export function makeServer({ environment = "development" } = {}) {
               street: "#1/9, 4th Main Road, KD Nagar",
               city: "Mumbai",
               state: "Maharashtra",
-              country: "India",
               pincode: "326789",
               phno: "7654352892",
             },
