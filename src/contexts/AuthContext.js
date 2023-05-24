@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
     const user = await loginService(email, password);
     if (user?.token) {
       setUser(user);
+      dispatch({ type: ACTION_TYPE.SET_ADDRESS, payload: user?.user?.address });
       return;
     }
     dispatch({ type: ACTION_TYPE.SHOW_ERROR, payload: "Error in login." });
