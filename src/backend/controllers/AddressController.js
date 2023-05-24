@@ -47,9 +47,9 @@ export const addNewAddressHandler = function (schema, request) {
     }
     const userAddresses = schema.users.findBy({ _id: userId }).address;
     const { address } = JSON.parse(request.requestBody);
-   
+
     userAddresses.push({
-      address,
+      ...address,
       createdAt: formatDate(),
       updatedAt: formatDate(),
       _id: uuid(),
