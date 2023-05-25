@@ -11,6 +11,12 @@
   font-weight: var(--font-semibold);
 }
 
+.list{
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+  height: 280px;
+  overflow-y: auto;
+}
 .btn{
   margin: 0.5rem 0;
   text-transform: uppercase;
