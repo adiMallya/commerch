@@ -5,14 +5,14 @@ export const addNewAddress = async (encodedToken, address, dispatch) => {
   try {
     const {
       status,
-      data: { address },
+      data: { address: userAddresses },
     } = await axios.post(
       "/api/user/address",
       { address },
       { headers: { authorization: encodedToken } }
     );
     if (status === 201)
-      dispatch({ type: ACTION_TYPE.SET_ADDRESS, payload: address });
+      dispatch({ type: ACTION_TYPE.SET_ADDRESS, payload: userAddresses });
   } catch (error) {
     console.error(error);
     dispatch({
