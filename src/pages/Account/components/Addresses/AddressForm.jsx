@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal } from "../../../../components";
 import { useAuthContext, useDataContext } from "../../../../contexts";
-import { addrFormState } from "../../../../utils";
+import { ACTION_TYPE, addrFormState } from "../../../../utils";
 import { addNewAddress } from "../../../../services";
 
 export const AddressForm = ({ showForm, closeForm }) => {
@@ -13,21 +13,29 @@ export const AddressForm = ({ showForm, closeForm }) => {
   const [formData, setFormData] = useState(addrFormState);
 
   const fillFormWithValue = (event) => {
+    const fieldName = event.target.getAttribute("name");
+    const fieldValue = event.target.value;
     setFormData((prev) => ({
       ...prev,
-      [event.target.getAttribute("name")]: event.target.value,
+      [fieldName]: fieldValue,
     }));
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
     addNewAddress(token, formData, dispatch);
-    closeForm();
-  };
-
-  const cancelHandler = () => {
+    dispatch({
+      type: ACTION_TYPE.SHOW_TOAST,
+      payload: { type: "success", msg: "Saved your Address" },
+    });
     closeForm();
     setFormData(addrFormState);
+  };
+
+  const cancelHandler = (event) => {
+    event.preventDefault();
+    setFormData(addrFormState);
+    closeForm();
   };
 
   return (
@@ -39,33 +47,36 @@ export const AddressForm = ({ showForm, closeForm }) => {
             name="name"
             placeholder="Name *"
             onChange={fillFormWithValue}
+            value={formData.name}
             required
           />
           <input
             type="tel"
             name="phno"
+            pattern="[1-9]{1}[0-9]{9}"
             maxLength="10"
             placeholder="Mobile *"
             onChange={fillFormWithValue}
-            // value={formData.phno}
+            value={formData.phno}
             required
           />
-          <div>
+          <div className="zipcode-block">
             <input
-              type="tel"
+              type="text"
               name="pincode"
+              pattern="\d{6}"
               maxLength="6"
               placeholder="Pincode *"
               onChange={fillFormWithValue}
-              // value={formData.pincode}
+              value={formData.pincode}
               required
             />
             <input
               type="text"
               name="state"
-              placeholder="State *"
+              placeholder="State "
               onChange={fillFormWithValue}
-              // value={formData.state}
+              value={formData.state}
             />
           </div>
           <input
@@ -74,7 +85,7 @@ export const AddressForm = ({ showForm, closeForm }) => {
             maxLength="255"
             placeholder="Address (House No, Building, Street, Area) *"
             onChange={fillFormWithValue}
-            // value={formData.street}
+            value={formData.street}
             required
           />
           <input
@@ -83,38 +94,22 @@ export const AddressForm = ({ showForm, closeForm }) => {
             maxLength="20"
             placeholder="City/District *"
             onChange={fillFormWithValue}
-            // value={formData.city}
+            value={formData.city}
           />
-          <div>
-            <p>Type of Address *</p>
-            <label htmlFor="defaultAddr">
-              <input
-                type="radio"
-                name="isDefault"
-                id="defaultAddr"
-                onChange={fillFormWithValue}
-                // checked={formData.isDefault}
-              />{" "}
-              Default
-            </label>
+
+          <div className="modal-footer">
+            <button
+              className="btn btn--secondary-solid"
+              type="reset"
+              onClick={cancelHandler}
+            >
+              Cancel
+            </button>
+            <button className="btn btn--primary-solid" type="submit">
+              Save
+            </button>
           </div>
         </form>
-      </div>
-      <div className="modal-footer">
-        <button
-          className="btn btn--secondary-solid"
-          type="reset"
-          onClick={cancelHandler}
-        >
-          Cancel
-        </button>
-        <button
-          className="btn btn--primary-solid"
-          type="submit"
-          onClick={submitHandler}
-        >
-          Save
-        </button>
       </div>
     </Modal>
   );
