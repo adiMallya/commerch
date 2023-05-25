@@ -1,0 +1,16 @@
+.profile-details{
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.profile-details .col{
+  display: flex;
+  flex-direction: column;
+}
+.col span{
+  margin-bottom: 1rem;
+}
+.col:first-of-type{
+  font-weight: var(--font-bold);
+}

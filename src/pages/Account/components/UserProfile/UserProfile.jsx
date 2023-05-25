@@ -1,4 +1,5 @@
 import { useAuthContext } from "../../../../contexts";
+import "./UserProfile.css";
 
 export const UserProfile = () => {
   const {
