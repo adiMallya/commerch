@@ -8,16 +8,27 @@
 .tabs{
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem 0;
   width: 350px;
+  margin-top: 0.5rem;
+}
+.tabs label{
+  flex-wrap: wrap;
+  padding: 0.5rem 2rem;
+  width: 50%;
+  font-size: 1.1rem;
+  font-weight: var(--font-semibold);
+  text-align: center;
+  transition: background ease 0.3s;
+  cursor: pointer;
 }
 
-.tab{
+.tabs .tab{
+  display: none;
+  order: 9;
   width: 100%;
   padding: 1rem;
   border: 1px solid #d6d6d6;
   background-color: var(--bg-color-primary);
-  border-top-right-radius: 1rem;
 }
 .tab--header{
   font-size: 1.2rem;
@@ -26,23 +37,16 @@
   border-bottom: 1px solid #d6d6d6;
 }
 
-/* Profile */
-.profile-details{
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
+.tabs input[type="radio"]{
+  display: none;
 }
-.profile-details .col{
+.tabs input[type="radio"]:checked+label{
+  background-color: var(--secondary-color);
+}
+.tabs input[type="radio"]:checked+label+.tab{
   display: flex;
   flex-direction: column;
 }
-.col span{
-  margin-bottom: 1rem;
-}
-.col:first-of-type{
-  font-weight: var(--font-bold);
-}
-
 
 @media screen and (min-width: 768px) {
   .tabs{
