@@ -20,3 +20,13 @@ export const ACTION_TYPE = {
   REMOVE_FROM_WISHLIST: "REMOVE_FROM_WISHLIST",
   SET_ADDRESS: "SET_ADDRESS",
 };
+
+export const addrFormState = {
+  name: "",
+  street: "",
+  city: "",
+  state: "",
+  pincode: "",
+  phno: "",
+  isDefault: false,
+};
