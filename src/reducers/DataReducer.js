@@ -162,8 +162,8 @@ export function dataReducer(state, { type, payload }) {
       return {
         ...state,
         toast: {
-          ...state.toast,
-          msg: payload,
+          type: payload?.type || "info",
+          msg: payload?.msg || payload,
         },
       };
     case ACTION_TYPE.SHOW_ERROR:
