@@ -34,7 +34,9 @@ export const CartPrice = () => {
         <div className="row">
           <span role="label">Convenience Fee</span>
           <span className="price-ship">
-            <span className={convenienceFee === 0 && "strike-price"}>₹99</span>{" "}
+            <span className={convenienceFee === 0 ? "strike-price" : ""}>
+              ₹99
+            </span>{" "}
             {convenienceFee === 0 && <span className="price-free">FREE</span>}
           </span>
         </div>

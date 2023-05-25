@@ -12,3 +12,4 @@ export {
   addToWishlist,
   removeFromWishlist,
 } from "./wishlist.service";
+export { addNewAddress, removeAddress } from "./address.service";

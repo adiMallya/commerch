@@ -12,6 +12,7 @@ export const initialState = {
   },
   cart: [],
   wishlist: [],
+  address: [],
   toast: {
     type: "info",
     msg: "",
@@ -152,12 +153,17 @@ export function dataReducer(state, { type, payload }) {
           msg: "Moved out of Wishlist",
         },
       };
+    case ACTION_TYPE.SET_ADDRESS:
+      return {
+        ...state,
+        address: [...payload],
+      };
     case ACTION_TYPE.SHOW_TOAST:
       return {
         ...state,
         toast: {
-          ...state.toast,
-          msg: payload,
+          type: payload?.type || "info",
+          msg: payload?.msg || payload,
         },
       };
     case ACTION_TYPE.SHOW_ERROR:

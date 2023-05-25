@@ -18,4 +18,14 @@ export const ACTION_TYPE = {
   INIT_WISHLIST: "INIT_WISHLIST",
   MOVE_TO_WISHLIST: "MOVE_TO_WISHLIST",
   REMOVE_FROM_WISHLIST: "REMOVE_FROM_WISHLIST",
+  SET_ADDRESS: "SET_ADDRESS",
+};
+
+export const addrFormState = {
+  name: "",
+  street: "",
+  city: "",
+  state: "",
+  pincode: "",
+  phno: "",
 };

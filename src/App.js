@@ -2,11 +2,11 @@ import { Routes, Route } from "react-router-dom";
 import {
   ProductList,
   Login,
-  Profile,
   SignUp,
   Wishlist,
   Cart,
   ProductDetail,
+  Account,
   NotFoundPage,
 } from "./pages";
 import Mockman from "mockman-js";
@@ -49,7 +49,7 @@ function App() {
           path="/account"
           element={
             <PrivateRoute>
-              <Profile />
+              <Account />
             </PrivateRoute>
           }
         />

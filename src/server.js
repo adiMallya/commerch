@@ -1,4 +1,5 @@
 import { Server, Model, RestSerializer } from "miragejs";
+import { v4 as uuid } from "uuid";
 import {
   addNewAddressHandler,
   getAllAddressesHandler,
@@ -56,7 +57,22 @@ export function makeServer({ environment = "development" } = {}) {
       });
 
       users.forEach((item) =>
-        server.create("user", { ...item, cart: [], wishlist: [] })
+        server.create("user", {
+          ...item,
+          cart: [],
+          wishlist: [],
+          address: [
+            {
+              _id: uuid(),
+              name: "Saket Ram",
+              street: "#1/9, 4th Main Road, KD Nagar",
+              city: "Mumbai",
+              state: "Maharashtra",
+              pincode: "326789",
+              phno: "7654352892",
+            },
+          ],
+        })
       );
 
       categories.forEach((item) => server.create("category", { ...item }));
