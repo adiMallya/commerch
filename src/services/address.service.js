@@ -27,7 +27,7 @@ export const removeAddress = async (addressId, encodedToken, dispatch) => {
     const {
       status,
       data: { address },
-    } = await axios.post(`/api/user/address/${addressId}`, {
+    } = await axios.delete(`/api/user/address/${addressId}`, {
       headers: { authorization: encodedToken },
     });
     if (status === 200)
