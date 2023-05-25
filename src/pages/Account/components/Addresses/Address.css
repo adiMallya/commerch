@@ -1,5 +1,21 @@
+.address__container{
+  margin: 0.625rem 0;
+  padding: 1rem;
+  background-color: var(--bg-color-primary);
+  box-shadow: #d6d6d6 0px 2px 15px 0px;
+  line-height: 1.2rem;
+  text-transform: capitalize;
+}
 
+.address-header{
+  font-weight: var(--font-semibold);
+}
 
+.btn{
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+}
+/* Form */
 .address-form{
   display: flex;
   flex-direction: column;
