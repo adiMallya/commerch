@@ -28,5 +28,4 @@ export const addrFormState = {
   state: "",
   pincode: "",
   phno: "",
-  isDefault: false,
 };
