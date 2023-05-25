@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
 
   const logOutUser = () => {
     setUser(false);
-    localStorage.clear();
+    localStorage.removeItem("user");
     navigate("/");
   };
 
