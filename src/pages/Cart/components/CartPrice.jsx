@@ -1,18 +1,35 @@
-import { useDataContext } from "../../../contexts";
+import { useNavigate } from "react-router-dom";
+
+import { useDataContext, useOrderContext } from "../../../contexts";
 import { getCartValues } from "../../../utils/getPriceDetails";
+import { ACTION_TYPE } from "../../../utils";
 
 export const CartPrice = () => {
+  const navigate = useNavigate();
   const { cart } = useDataContext();
+  const { dispatch: orderDispatch } = useOrderContext();
 
   const { cartPrice, discount } = getCartValues(cart);
 
   const convenienceFee = cartPrice > 2000 ? 0 : 99;
 
-  const totalPrice = parseFloat(cartPrice - discount + convenienceFee).toFixed(
-    2
-  );
+  const totalAmt = parseFloat(cartPrice - discount + convenienceFee).toFixed(2);
 
   const totalDiscount = parseFloat(discount).toFixed(2);
+
+  const checkoutHandler = () => {
+    orderDispatch({
+      type: ACTION_TYPE.ORDER_PRICE,
+      payload: {
+        cartPrice,
+        discount,
+        convenienceFee,
+        totalAmt,
+        totalDiscount,
+      },
+    });
+    navigate("/checkout");
+  };
 
   return (
     <section className="price-card">
@@ -43,13 +60,16 @@ export const CartPrice = () => {
       </div>
       <div className="row total-amt">
         <span role="label">Total Amount</span>
-        <span className="price-total">{`₹${totalPrice}`}</span>
+        <span className="price-total">{`₹${totalAmt}`}</span>
       </div>
       <p className="cart-message">
         You will save ₹{totalDiscount} on this order
       </p>
       <div className="cta-container">
-        <button className="btn btn--primary-solid checkout-btn">
+        <button
+          className="btn btn--primary-solid checkout-btn"
+          onClick={checkoutHandler}
+        >
           Place Order
         </button>
       </div>
