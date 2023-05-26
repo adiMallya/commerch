@@ -54,7 +54,10 @@
   margin: 0;
 }
 .card-header .wishlist-btn{
+  margin: 0;
   padding: 0.2rem 0;
+  position: absolute;
+  right: 0.5rem;
 }
 
 .card-desc{
