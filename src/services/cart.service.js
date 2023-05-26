@@ -63,23 +63,6 @@ export const removeFromCart = async (productId, encodedToken, dispatch) => {
   }
 };
 
-export const clearCart = async (encodedToken, cart, dispatch) => {
-  try {
-    for (const item of cart) {
-      await axios.delete(`/api/user/cart/${item._id}`, {
-        headers: { authorization: encodedToken },
-      });
-    }
-    dispatch({ type: ACTION_TYPE.CLEAR_CART });
-  } catch (error) {
-    dispatch({
-      type: ACTION_TYPE.SHOW_ERROR,
-      payload: "Error in clearing the cart",
-    });
-    console.error(error);
-  }
-};
-
 export const updateQtyInCart = async (
   productId,
   encodedToken,

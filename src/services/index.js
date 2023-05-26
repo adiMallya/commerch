@@ -4,7 +4,6 @@ export {
   fetchUserCart,
   addToCart,
   removeFromCart,
-  clearCart,
   updateQtyInCart,
 } from "./cart.service";
 export {
