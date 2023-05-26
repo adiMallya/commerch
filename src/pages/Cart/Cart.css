@@ -19,10 +19,17 @@
 .cart-card{
   display: flex;
   flex-direction: column;
-  width: 22rem;
+  width: 25rem;
   margin: 1.5rem 0;
   padding: 1rem;
   box-shadow: #d6d6d6 0px 5px 15px;
+}
+.cart-card .btn{
+  margin: 0;
+}
+.cart-card .cta-container .btn{
+  width: 75%;
+  /* margin: 0 0.5rem; */
 }
 /* Cart price */
 .price-card{
@@ -84,7 +91,7 @@
 
 @media screen and (min-width : 768px){
   .cart-card{
-    width: 25rem;
+    width: 30rem;
   }
   .cart__container--main{
     gap: 2rem;
