@@ -19,17 +19,13 @@
 .cart-card{
   display: flex;
   flex-direction: column;
-  width: 25rem;
+  width: 20rem;
   margin: 1.5rem 0;
   padding: 1rem;
   box-shadow: #d6d6d6 0px 5px 15px;
 }
 .cart-card .btn{
   margin: 0;
-}
-.cart-card .cta-container .btn{
-  width: 75%;
-  /* margin: 0 0.5rem; */
 }
 /* Cart price */
 .price-card{
