@@ -1,6 +1,7 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaHeart, FaStar } from "react-icons/fa";
 import { RiShoppingBag2Fill } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
 
 import { useAuthContext, useDataContext } from "../../../../contexts";
 import {
@@ -21,6 +22,7 @@ export const ProductCard = ({ product }) => {
     user: { token },
   } = useAuthContext();
   const { cart, wishlist, dispatch } = useDataContext();
+  const [btnDisabled, setBtnDisabled] = useState(false);
 
   const {
     _id,
@@ -43,7 +45,7 @@ export const ProductCard = ({ product }) => {
     token
       ? inCart
         ? navigate("/cart")
-        : addToCart(token, product, dispatch)
+        : addToCart(token, product, dispatch, setBtnDisabled)
       : navigate("/login");
   };
 
@@ -51,7 +53,7 @@ export const ProductCard = ({ product }) => {
     token
       ? inWishlist
         ? removeFromWishlist(_id, token, dispatch)
-        : addToWishlist(token, product, dispatch)
+        : addToWishlist(token, product, dispatch, setBtnDisabled)
       : navigate("/login");
   };
 
@@ -79,16 +81,16 @@ export const ProductCard = ({ product }) => {
               <p className="card-brand">{brand}</p>
               <p className="card-desc">{name}</p>
             </div>
-            <span
-              role="button"
-              className="wishlist-btn"
+            <button
+              className="btn btn--primary-icon wishlist-btn"
               onClick={moveToWishlistHandler}
+              disabled={btnDisabled}
             >
               <FaHeart
                 title="Add To Wishlist"
                 className={inWishlist && "liked"}
               />
-            </span>
+            </button>
           </div>
           <div className="card-price">
             <span className="disc-price">₹ {price}</span>
@@ -100,6 +102,7 @@ export const ProductCard = ({ product }) => {
           <button
             className="btn btn--primary-text-icon add-btn"
             onClick={addToCartHandler}
+            disabled={btnDisabled}
           >
             {inCart ? (
               <span role="button" className="btn-icon">
