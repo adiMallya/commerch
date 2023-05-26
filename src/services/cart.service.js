@@ -21,7 +21,13 @@ export const fetchUserCart = async (encodedToken, dispatch) => {
   }
 };
 
-export const addToCart = async (encodedToken, product, dispatch) => {
+export const addToCart = async (
+  encodedToken,
+  product,
+  dispatch,
+  setBtnState
+) => {
+  setBtnState && setBtnState(() => true);
   try {
     const {
       status,
@@ -41,6 +47,7 @@ export const addToCart = async (encodedToken, product, dispatch) => {
     });
     console.error(error);
   }
+  setBtnState && setBtnState(() => false);
 };
 
 export const removeFromCart = async (productId, encodedToken, dispatch) => {

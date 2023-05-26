@@ -21,7 +21,13 @@ export const fetchUserWishlist = async (encodedToken, dispatch) => {
   }
 };
 
-export const addToWishlist = async (encodedToken, product, dispatch) => {
+export const addToWishlist = async (
+  encodedToken,
+  product,
+  dispatch,
+  setBtnState
+) => {
+  setBtnState && setBtnState(() => true);
   try {
     const {
       status,
@@ -41,6 +47,7 @@ export const addToWishlist = async (encodedToken, product, dispatch) => {
     });
     console.error(error);
   }
+  setBtnState && setBtnState(() => false);
 };
 
 export const removeFromWishlist = async (productId, encodedToken, dispatch) => {

@@ -1,6 +1,7 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
 
 import { useAuthContext, useDataContext } from "../../contexts";
 import { ACTION_TYPE, getDiscountPercentage, isItemInCart } from "../../utils";
@@ -12,6 +13,8 @@ export const WishlistCard = ({ product }) => {
     user: { token },
   } = useAuthContext();
   const { cart, dispatch } = useDataContext();
+  const [btnDisabled, setBtnDisabled] = useState(false);
+
   const {
     _id,
     img,
@@ -33,7 +36,7 @@ export const WishlistCard = ({ product }) => {
         payload: "Already in Cart. Updated!",
       });
     } else {
-      addToCart(token, product, dispatch);
+      addToCart(token, product, dispatch, setBtnDisabled);
       removeFromWishlist(product._id, token, dispatch);
     }
   };
@@ -41,6 +44,7 @@ export const WishlistCard = ({ product }) => {
   const removeFromWishlistHandler = () => {
     removeFromWishlist(product._id, token, dispatch);
   };
+
   return (
     <div key={_id} className="card">
       <div className={!inStock ? "overlay-container" : ""}>
@@ -80,6 +84,7 @@ export const WishlistCard = ({ product }) => {
         <button
           className="btn btn--primary-outline add-btn"
           onClick={moveToCartHandler}
+          disabled={btnDisabled}
         >
           Move To Bag
         </button>

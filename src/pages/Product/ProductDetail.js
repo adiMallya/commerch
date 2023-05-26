@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { RiShoppingBag2Fill } from "react-icons/ri";
 import { FaHeart, FaStar } from "react-icons/fa";
+
 import { useAuthContext, useDataContext } from "../../contexts";
 import {
   getDiscountPercentage,
@@ -16,6 +18,7 @@ export function ProductDetail() {
     user: { token },
   } = useAuthContext();
   const { products, cart, wishlist, dispatch } = useDataContext();
+  const [btnDisabled, setBtnDisabled] = useState(false);
 
   const product = products?.find((product) => product._id === productId);
 
@@ -31,7 +34,7 @@ export function ProductDetail() {
     token
       ? inCart
         ? navigate("/cart")
-        : addToCart(token, product, dispatch)
+        : addToCart(token, product, dispatch, setBtnDisabled)
       : navigate("/login");
   };
 
@@ -39,7 +42,7 @@ export function ProductDetail() {
     token
       ? inWishlist
         ? navigate("/wishlist")
-        : addToWishlist(token, product, dispatch)
+        : addToWishlist(token, product, dispatch, setBtnDisabled)
       : navigate("/login");
   };
 
@@ -73,6 +76,7 @@ export function ProductDetail() {
               <button
                 className="btn btn--primary-text-icon"
                 onClick={addToCartHandler}
+                disabled={btnDisabled}
               >
                 {inCart ? (
                   <span role="button" className="btn-icon">
@@ -88,6 +92,7 @@ export function ProductDetail() {
               <button
                 className="btn btn--secondary-outline"
                 onClick={moveToWishlistHandler}
+                disabled={btnDisabled}
               >
                 {inWishlist ? (
                   <span role="button" className="btn-icon">
