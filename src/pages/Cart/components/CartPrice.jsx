@@ -6,7 +6,7 @@ import { ACTION_TYPE } from "../../../utils";
 
 export const CartPrice = () => {
   const navigate = useNavigate();
-  const { cart } = useDataContext();
+  const { cart, address, dispatch: dataDispatch } = useDataContext();
   const { dispatch: orderDispatch } = useOrderContext();
 
   const { cartPrice, discount } = getCartValues(cart);
@@ -18,21 +18,33 @@ export const CartPrice = () => {
   const totalDiscount = parseFloat(discount).toFixed(2);
 
   const checkoutHandler = () => {
-    orderDispatch({
-      type: ACTION_TYPE.ORDER_PRICE,
-      payload: {
-        cartPrice,
-        discount,
-        convenienceFee,
-        totalAmt,
-        totalDiscount,
-      },
-    });
-    navigate("/checkout");
+    if (address.length) {
+      orderDispatch({
+        type: ACTION_TYPE.ORDER_PRICE,
+        payload: {
+          cartPrice,
+          discount,
+          convenienceFee,
+          totalAmt,
+          totalDiscount,
+        },
+      });
+      orderDispatch({
+        type: ACTION_TYPE.ORDER_ADDRESS,
+        payload: address[0],
+      });
+      navigate("/checkout");
+    } else {
+      dataDispatch({
+        type: ACTION_TYPE.SHOW_ERROR,
+        payload: "Please add address to your Account!",
+      });
+      navigate("/account");
+    }
   };
 
   return (
-    <section className="price-card">
+    <section className="cart__container--item price-card">
       <div className="price-card--title" role="heading">
         <span>Price Details</span>
         <span className="">{`(${cart.length} ${
