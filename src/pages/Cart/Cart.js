@@ -20,19 +20,20 @@ export function Cart() {
 
   return (
     <main className="page">
-      <div className="cart__container--main">
+      <div className="cart-layout">
         <div className="cart__container">
-          <section>
+          <section className="cart__container--item">
             {cartIsNotEmpty && (
               <div className="cart__container--header page-heading">
                 <h3>My Bag</h3>
-                <button
+                <span
+                  role="button"
                   className="btn link-text--secondary"
                   title="Delete All"
                   onClick={() => dispatch({ type: ACTION_TYPE.CLEAR_CART })}
                 >
                   Clear All
-                </button>
+                </span>
               </div>
             )}
 
