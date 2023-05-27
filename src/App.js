@@ -8,6 +8,7 @@ import {
   ProductDetail,
   Account,
   NotFoundPage,
+  Checkout,
 } from "./pages";
 import Mockman from "mockman-js";
 import { Loader, Navbar, Toast, PrivateRoute } from "./components";
@@ -44,7 +45,14 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/checkout" />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <Checkout />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/account"
           element={
