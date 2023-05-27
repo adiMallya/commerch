@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useDataContext } from "./DataContext";
@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
     const user = await loginService(email, password);
     if (user?.token) {
       setUser(user);
-      dispatch({ type: ACTION_TYPE.SET_ADDRESS, payload: user?.user?.address });
+      dispatch({ type: ACTION_TYPE.SET_ADDRESS, payload: user.user.address });
       return;
     }
     dispatch({ type: ACTION_TYPE.SHOW_ERROR, payload: "Error in login." });
@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
     const user = await signUpService(email, password, firstName, lastName);
     if (user?.token) {
       setUser(user);
+      dispatch({ type: ACTION_TYPE.SET_ADDRESS, payload: user.user.address });
       return;
     }
     dispatch({
@@ -41,6 +42,10 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
     navigate("/");
   };
+
+  useEffect(() => {
+    dispatch({ type: ACTION_TYPE.SET_ADDRESS, payload: user.user.address });
+  }, [user?.token]);
 
   return (
     <AuthContext.Provider
