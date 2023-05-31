@@ -6,7 +6,7 @@ import {
   useState,
 } from "react";
 
-import { initialState, dataReducer } from "../reducers/DataReducer";
+import { initialState, dataReducer } from "../reducers";
 import { fetchAllProducts, fetchAllCategories } from "../services";
 
 const DataContext = createContext();
