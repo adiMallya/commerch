@@ -1,12 +1,12 @@
 .filter__container{
   min-width: 252px;
-  width: 10rem;
+  width: 16rem;
   height: 100%;
   position: fixed;
   left: 0;
   z-index: var(--z-index-5);
-  background-color: var(--bg-color-primary);
-  /* margin-top: 0.625rem; */
+  background-color: var(--primary-text-color);
+  margin-top: 0.625rem;
   padding: 1.2rem 1.5rem 0 1.5rem;
   border-top: 1px solid var(--secondary-color);
   border-right: 1px solid var(--secondary-color);
@@ -39,6 +39,7 @@
 .select-label{
   display: block;
   width: 95%;
+  margin-bottom: 0.625rem;
   overflow: hidden;
   text-overflow: ellipsis;
 }
