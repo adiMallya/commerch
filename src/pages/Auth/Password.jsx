@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const Password = ({ value, onChangeHandler }) => {
   const [view, setView] = useState(false);
@@ -19,8 +19,7 @@ export const Password = ({ value, onChangeHandler }) => {
         role="button"
         onClick={() => setView((prev) => !prev)}
       >
-        {" "}
-        <FaEye title="Show" />
+        {view ? <FaEye title="Show" /> : <FaEyeSlash title="Hide" />}
       </span>
     </div>
   );
