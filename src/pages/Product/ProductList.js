@@ -9,7 +9,14 @@ import "./Product.css";
 export function ProductList() {
   const {
     products,
-    filters: { sortBy, ratingRange, searchValue, inStock, categoryType },
+    filters: {
+      sortBy,
+      ratingRange,
+      searchValue,
+      inStock,
+      categoryType,
+      onSale,
+    },
     setDrawerOpen,
   } = useDataContext();
 
@@ -19,6 +26,7 @@ export function ProductList() {
     ratingRange,
     categoryType,
     inStock,
+    onSale,
     searchValue
   );
 
