@@ -14,9 +14,7 @@ import { addToCart, addToWishlist } from "../../services";
 export function ProductDetail() {
   const { productId } = useParams();
   const navigate = useNavigate();
-  const {
-    user: { token },
-  } = useAuthContext();
+  const { token } = useAuthContext();
   const { products, cart, wishlist, dispatch } = useDataContext();
   const [btnDisabled, setBtnDisabled] = useState(false);
 

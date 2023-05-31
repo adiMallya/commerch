@@ -5,9 +5,7 @@ import { ACTION_TYPE, addrFormState } from "../../../../utils";
 import { addNewAddress } from "../../../../services";
 
 export const AddressForm = ({ showForm, closeForm }) => {
-  const {
-    user: { token },
-  } = useAuthContext();
+  const { token } = useAuthContext();
   const { dispatch } = useDataContext();
 
   const [formData, setFormData] = useState(addrFormState);

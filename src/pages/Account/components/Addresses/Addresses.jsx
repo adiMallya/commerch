@@ -5,9 +5,7 @@ import { AddressForm } from "./AddressForm";
 import "./Address.css";
 
 export const Addresses = () => {
-  const {
-    user: { token },
-  } = useAuthContext();
+  const { token } = useAuthContext();
   const { address, dispatch } = useDataContext();
 
   const [showModal, setShowModal] = useState(false);
