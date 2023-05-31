@@ -10,10 +10,10 @@
   --primary-color: #2dd4bf;
   --secondary-color: #e9e9ed;
   --primary-text-color: #fff;
-  --secondary-text-color: #282c3f;
+  --secondary-text-color: #3f3947;;
 
-  --bg-color-primary: #fcfcfc;
-  --bg-color-secondary: rgb(105,110,121);
+  --bg-color-primary: #f9fafb;
+  --bg-color-secondary: #f1f5f9;
   --bg-color-secondary-2: #3f3947;
   --bg-color-gradient:#4ac29a; /* fallback for old browsers */
   

@@ -9,6 +9,7 @@ import {
   Account,
   NotFoundPage,
   Checkout,
+  Home,
 } from "./pages";
 import Mockman from "mockman-js";
 import { Loader, Navbar, Toast, PrivateRoute } from "./components";
@@ -23,7 +24,7 @@ function App() {
       <Navbar />
       {toast.msg && <Toast />}
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/login" element={<Login />} />
