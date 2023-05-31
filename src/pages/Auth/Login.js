@@ -1,14 +1,17 @@
-import { Link, useLocation } from "react-router-dom";
-import { useAuthContext, useDataContext } from "../../contexts";
 import { useEffect, useState } from "react";
-import { Password } from "./Password";
-import "./Auth.css";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuthContext, useDataContext } from "../../contexts";
+import { loginService } from "../../services";
 import { ACTION_TYPE } from "../../utils";
 
+import { Password } from "./Password";
+import "./Auth.css";
+
 export function Login() {
+  const navigate = useNavigate();
   const location = useLocation();
-  const { dispatch } = useDataContext();
-  const { user, loginUser, navigate } = useAuthContext();
+  const { dispatch: dataDispatch } = useDataContext();
+  const { token, dispatch: authDispatch } = useAuthContext();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -22,9 +25,10 @@ export function Login() {
     }));
 
   const submitToLogin = (event) => {
-    dispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: true });
+    const { email, password } = formData;
+    dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: true });
     event.preventDefault();
-    loginUser(formData.email, formData.password);
+    loginService(email, password, authDispatch, dataDispatch);
   };
 
   const loginAsGuest = () => {
@@ -34,14 +38,17 @@ export function Login() {
     }));
   };
 
-  if (user) {
-    navigate(location?.state?.from || "/products", { replace: true });
-    dispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: false });
-  }
+  useEffect(() => {
+    if (token) {
+      navigate(location?.state?.from || "/products", { replace: true });
+      dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: false });
+    }
+  }, [token]);
 
   useEffect(() => {
     document.title = "commerch | login";
   }, []);
+
   return (
     <main className="page background--gradient">
       <div className="auth__container">

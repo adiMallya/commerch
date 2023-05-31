@@ -1,13 +1,16 @@
-import { Link } from "react-router-dom";
-import { useAuthContext, useDataContext } from "../../contexts";
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthContext, useDataContext } from "../../contexts";
+import { ACTION_TYPE } from "../../utils";
+import { signUpService } from "../../services";
+
 import { Password } from "./Password";
 import "./Auth.css";
-import { ACTION_TYPE } from "../../utils";
 
 export function SignUp() {
-  const { dispatch } = useDataContext();
-  const { user, signUpUser, navigate } = useAuthContext();
+  const navigate = useNavigate();
+  const { dispatch: dataDispatch } = useDataContext();
+  const { token, dispatch: authDispatch } = useAuthContext();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -24,19 +27,29 @@ export function SignUp() {
 
   const submitToRegister = (event) => {
     const { email, password, firstName, lastName } = formData;
-    dispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: true });
+    dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: true });
     event.preventDefault();
-    signUpUser(email, password, firstName, lastName);
+    signUpService(
+      email,
+      password,
+      firstName,
+      lastName,
+      authDispatch,
+      dataDispatch
+    );
   };
 
-  if (user) {
-    navigate("/products", { replace: true });
-    dispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: false });
-  }
+  useEffect(() => {
+    if (token) {
+      navigate("/products", { replace: true });
+      dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: false });
+    }
+  }, [token]);
 
   useEffect(() => {
     document.title = "commerch | sign-up";
   }, []);
+
   return (
     <main className="page background--gradient">
       <div className="auth__container">
