@@ -10,26 +10,26 @@ export const Footer = () => {
           <span className="footer-header">commerch</span>
           <p>One Stop For All Your Cool Merchs</p>
           <ul className="inline-list list--style-none footer__social-icons">
-            <li class="list__inline-item">
+            <li className="list__inline-item">
               <a
                 href="https://github.com/adiMallya/commerch"
                 target="_blank"
-                class="link-no-style"
+                className="link-no-style"
               >
                 <FaGithub />
               </a>
             </li>
-            <li class="list__inline-item">
+            <li className="list__inline-item">
               <a
                 href="https://www.linkedin.com/in/adithya-mallya-54438417a/"
                 target="_blank"
-                class="link-no-style"
+                className="link-no-style"
               >
                 <FaLinkedinIn />
               </a>
             </li>
-            <li class="list__inline-item">
-              <a href="#" target="_blank" class="link-no-style">
+            <li className="list__inline-item">
+              <a href="#" target="_blank" className="link-no-style">
                 <FaInstagram />
               </a>
             </li>
