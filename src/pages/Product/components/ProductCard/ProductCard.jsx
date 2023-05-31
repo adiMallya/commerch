@@ -18,9 +18,7 @@ import "./ProductCard.css";
 
 export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  const {
-    user: { token },
-  } = useAuthContext();
+  const { token } = useAuthContext();
   const { cart, wishlist, dispatch } = useDataContext();
   const [btnDisabled, setBtnDisabled] = useState(false);
 

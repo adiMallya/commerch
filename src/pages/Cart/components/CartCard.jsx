@@ -11,9 +11,7 @@ import {
 
 export const CartCard = ({ product }) => {
   const navigate = useNavigate();
-  const {
-    user: { token },
-  } = useAuthContext();
+  const { token } = useAuthContext();
   const { wishlist, dispatch } = useDataContext();
 
   const { _id, img, brand, name, price, originalPrice, qty } = product;

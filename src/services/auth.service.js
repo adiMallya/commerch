@@ -1,6 +1,12 @@
 import axios from "axios";
+import { ACTION_TYPE } from "../utils";
 
-export const loginService = async (email, password) => {
+export const loginService = async (
+  email,
+  password,
+  authDispatch,
+  dataDispatch
+) => {
   try {
     const {
       status,
@@ -11,19 +17,39 @@ export const loginService = async (email, password) => {
     });
 
     if (status === 200) {
-      const user = {
-        user: foundUser,
-        token: encodedToken,
-      };
-      localStorage.setItem("user", JSON.stringify(user));
-      return user;
+      // const user = {
+      //   user: foundUser,
+      //   token: encodedToken,
+      // };
+      // localStorage.setItem("user", JSON.stringify(user));
+      // return user;
+      authDispatch({ type: ACTION_TYPE.SET_JWT_TOKEN, payload: encodedToken });
+      authDispatch({ type: ACTION_TYPE.SET_USER, payload: foundUser });
+
+      dataDispatch({ type: ACTION_TYPE.INIT_CART, payload: foundUser.cart });
+      dataDispatch({
+        type: ACTION_TYPE.INIT_WISHLIST,
+        payload: foundUser.wishlist,
+      });
+      dataDispatch({
+        type: ACTION_TYPE.SET_ADDRESS,
+        payload: foundUser.address,
+      });
     }
   } catch (error) {
+    dataDispatch({ type: ACTION_TYPE.SHOW_ERROR, payload: "Error in login." });
     console.error(error);
   }
 };
 
-export const signUpService = async (email, password, firstName, lastName) => {
+export const signUpService = async (
+  email,
+  password,
+  firstName,
+  lastName,
+  authDispatch,
+  dataDispatch
+) => {
   try {
     const {
       status,
@@ -36,11 +62,27 @@ export const signUpService = async (email, password, firstName, lastName) => {
     });
 
     if (status === 201) {
-      const user = { user: createdUser, token: encodedToken };
-      localStorage.setItem("user", JSON.stringify(user));
-      return user;
+      // const user = { user: createdUser, token: encodedToken };
+      // localStorage.setItem("user", JSON.stringify(user));
+      // return user;
+      authDispatch({ type: ACTION_TYPE.SET_JWT_TOKEN, payload: encodedToken });
+      authDispatch({ type: ACTION_TYPE.SET_USER, payload: createdUser });
+
+      dataDispatch({ type: ACTION_TYPE.INIT_CART, payload: createdUser.cart });
+      dataDispatch({
+        type: ACTION_TYPE.INIT_WISHLIST,
+        payload: createdUser.wishlist,
+      });
+      dataDispatch({
+        type: ACTION_TYPE.SET_ADDRESS,
+        payload: createdUser.address,
+      });
     }
   } catch (error) {
+    dataDispatch({
+      type: ACTION_TYPE.SHOW_ERROR,
+      payload: "Email Already Exists.",
+    });
     console.error(error);
   }
 };

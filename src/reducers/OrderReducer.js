@@ -1,6 +1,6 @@
 import { ACTION_TYPE } from "../utils";
 
-export const initialState = {
+export const initialOrderState = {
   orderAddress: {},
   orderPrice: {
     cartPrice: 0,

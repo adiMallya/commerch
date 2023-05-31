@@ -10,9 +10,9 @@ export const initialState = {
     ratingRange: 3.5,
     categoryType: [],
   },
-  cart: [],
-  wishlist: [],
-  address: [],
+  cart: localStorage.getItem("user")?.cart ?? [],
+  wishlist: localStorage.getItem("user")?.wishlist ?? [],
+  address: localStorage.getItem("user")?.address ?? [],
   toast: {
     type: "info",
     msg: "",

@@ -1,16 +1,17 @@
+import { useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FaSearch, FaHeart, FaUser } from "react-icons/fa";
 import { RiShoppingBag2Fill } from "react-icons/ri";
 import { useDataContext, useAuthContext } from "../../contexts";
-import "./Navbar.css";
 import { ACTION_TYPE } from "../../utils";
-import { useState } from "react";
+
+import "./Navbar.css";
 
 export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { setDrawerOpen, cart, wishlist, dispatch } = useDataContext();
-  const { user } = useAuthContext();
+  const { token } = useAuthContext();
 
   const [input, setInput] = useState("");
 
@@ -88,7 +89,7 @@ export const Navbar = () => {
           </li>
           <li className="list__inline-item">
             <NavLink className="nav-icon-link" to="/account">
-              {user?.token ? (
+              {token ? (
                 <span className="nav-icon">
                   <FaUser title="Profile" />
                 </span>

@@ -95,7 +95,7 @@ a:active, a:focus, button:focus {
 }
 ::-webkit-scrollbar-thumb{
   border-radius: 9px;
-  background-color: var(--bg-color-secondary);
+  background-color: var(--bg-color-secondary-2);
   background-clip: content-box;
 }
 .background--gradient{

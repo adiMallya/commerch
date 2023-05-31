@@ -1,11 +1,11 @@
 import { createContext, useContext, useReducer, useState } from "react";
 
-import { initialState, orderReducer } from "../reducers/OrderReducer";
+import { initialOrderState, orderReducer } from "../reducers";
 
 const OrderContext = createContext();
 
 const OrderProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(orderReducer, initialState);
+  const [state, dispatch] = useReducer(orderReducer, initialOrderState);
 
   const [order, setOrder] = useState([]);
 

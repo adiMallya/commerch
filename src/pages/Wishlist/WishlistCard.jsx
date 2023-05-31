@@ -9,9 +9,7 @@ import { addToCart, removeFromWishlist, updateQtyInCart } from "../../services";
 
 export const WishlistCard = ({ product }) => {
   const navigate = useNavigate();
-  const {
-    user: { token },
-  } = useAuthContext();
+  const { token } = useAuthContext();
   const { cart, dispatch } = useDataContext();
   const [btnDisabled, setBtnDisabled] = useState(false);
 
