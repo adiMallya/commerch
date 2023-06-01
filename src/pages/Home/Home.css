@@ -49,13 +49,15 @@
 }
 .text-overlay{
   position: absolute;
-  top: 41.5%;
-  left: 20.5%;
+  top: 3em;
+  left: 5rem;
+  right: 5rem;
   padding: 0.625rem;
   background-color: rgba(0, 0, 0, 0.45);
   transition: 0.3s ease-in-out;
   opacity: 0;
   cursor: pointer;
+  text-align: center;
   font-weight: var(--font-semibold);
   color: var(--primary-text-color);
 }
@@ -101,5 +103,8 @@
 
   .featured-categories.grid-view {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .featured-card:hover .text-overlay{
+    top: 8rem;
   }
 }
