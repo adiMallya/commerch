@@ -35,7 +35,6 @@ export const WishlistCard = ({ product }) => {
       });
     } else {
       addToCart(token, product, dispatch, setBtnDisabled);
-      removeFromWishlist(product._id, token, dispatch);
     }
   };
 
@@ -84,7 +83,7 @@ export const WishlistCard = ({ product }) => {
           onClick={moveToCartHandler}
           disabled={btnDisabled}
         >
-          Move To Bag
+          Add To Bag
         </button>
         {!inStock && (
           <div className="overlay-text">

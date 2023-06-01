@@ -151,7 +151,7 @@ export function dataReducer(state, { type, payload }) {
         wishlist: [...payload],
         toast: {
           type: "success",
-          msg: "Moved to your Wishlist",
+          msg: "Saved to your Wishlist",
         },
       };
     case ACTION_TYPE.REMOVE_FROM_WISHLIST:
