@@ -1,16 +1,15 @@
 import { useState } from "react";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaSearch, FaHeart, FaUser } from "react-icons/fa";
-import { RiShoppingBag2Fill } from "react-icons/ri";
+import { RiShoppingBag2Fill, RiCompassDiscoverFill } from "react-icons/ri";
+
 import { useDataContext, useAuthContext } from "../../contexts";
 import { ACTION_TYPE } from "../../utils";
-
 import "./Navbar.css";
 
 export const Navbar = () => {
-  const location = useLocation();
   const navigate = useNavigate();
-  const { setDrawerOpen, cart, wishlist, dispatch } = useDataContext();
+  const { cart, wishlist, dispatch } = useDataContext();
   const { token } = useAuthContext();
 
   const [input, setInput] = useState("");
@@ -29,22 +28,16 @@ export const Navbar = () => {
     <header className="nav-header">
       <nav className="navbar">
         <div className="nav-section">
-          {location.pathname.includes("products") && (
-            <div
-              className="navbar-toggler nav-section__items"
-              onClick={() => setDrawerOpen((prev) => !prev)}
-            >
-              <div className="line1"></div>
-              <div className="line2"></div>
-              <div className="line3"></div>
-            </div>
-          )}
-
           <div className="navbar-brand-title nav-section__items">
             <Link className="link-no-style" to="/">
               <h3>
                 <span>com</span>merch
               </h3>
+            </Link>
+          </div>
+          <div className="nav-section__items">
+            <Link className="link-no-style nav-icon-link" to="/products">
+              <span className="nav-icon">Shop</span>
             </Link>
           </div>
         </div>
