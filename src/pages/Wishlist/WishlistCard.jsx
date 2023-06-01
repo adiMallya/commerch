@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { GrClose } from "react-icons/gr";
 
 import { useAuthContext, useDataContext } from "../../contexts";
 import { ACTION_TYPE, getDiscountPercentage, isItemInCart } from "../../utils";
@@ -58,7 +58,7 @@ export const WishlistCard = ({ product }) => {
             role="button"
             onClick={removeFromWishlistHandler}
           >
-            <AiOutlineCloseCircle title="Remove" />
+            <GrClose title="Remove" />
           </span>
 
           <span className="badge--rating">

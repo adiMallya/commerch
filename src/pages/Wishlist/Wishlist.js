@@ -14,29 +14,25 @@ export function Wishlist() {
 
   return (
     <main className="page">
-      <div
-        className="vertical-middle-self display-flex page-heading"
-        role="heading"
-      >
-        <h3>My Wishlist </h3>
-        <span className="item-count">
-          {wishlistIsNotEmpty && `${wishlist.length} items`}
-        </span>
+      <div className="wishlist-layout">
+        <h3 className="page-heading" role="heading">
+          My Wishlist{" "}
+        </h3>
+        {wishlistIsNotEmpty ? (
+          <section className="grid-view">
+            {wishlist.map((item) => (
+              <WishlistCard key={item._id} product={item} />
+            ))}
+          </section>
+        ) : (
+          <div className="vertical-middle-self">
+            <p>Your Wishlist is Empty</p>
+            <Link className="btn btn--primary-outline" to="/products">
+              Explore Products
+            </Link>
+          </div>
+        )}
       </div>
-      {wishlistIsNotEmpty ? (
-        <section className="vertical-middle-self grid-view">
-          {wishlist.map((item) => (
-            <WishlistCard key={item._id} product={item} />
-          ))}
-        </section>
-      ) : (
-        <div className="vertical-middle-self">
-          <p>Your Wishlist is Empty</p>
-          <Link className="btn btn--primary-outline" to="/products">
-            Explore Products
-          </Link>
-        </div>
-      )}
     </main>
   );
 }
