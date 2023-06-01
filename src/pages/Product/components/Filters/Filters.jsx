@@ -8,7 +8,7 @@ export const Filters = () => {
     products,
     filters: { sortBy, ratingRange, inStock, categoryType, onSale },
     drawerOpen,
-    setDrawerOpen,
+    setShowModal,
     dispatch,
   } = useDataContext();
 
@@ -27,11 +27,7 @@ export const Filters = () => {
   };
 
   return (
-    <aside
-      className={`filter__container ${
-        drawerOpen ? "drawer-open" : "drawer-close"
-      }`}
-    >
+    <div className="filter__container">
       <div className="filter-header">
         <span className="filter-title" role="heading">
           Filters
@@ -41,7 +37,7 @@ export const Filters = () => {
           role="button"
           onClick={() => {
             onChangeHandler(ACTION_TYPE.CLEAR_FILTER, products);
-            setDrawerOpen(!drawerOpen);
+            setShowModal(false);
           }}
         >
           Clear All
@@ -160,6 +156,6 @@ export const Filters = () => {
           </label>
         </div>
       </div>
-    </aside>
+    </div>
   );
 };
