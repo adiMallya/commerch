@@ -34,7 +34,7 @@ export function ProductList() {
   );
 
   useEffect(() => {
-    document.title = "commerch | products";
+    document.title = "commerch | shop";
     document.documentElement.scrollTop = 0;
     setShowModal(false);
   }, []);
