@@ -191,6 +191,12 @@ export function dataReducer(state, { type, payload }) {
         ...state,
         isLoading: payload,
       };
+    case ACTION_TYPE.LOG_OUT:
+      return {
+        ...state,
+        cart: [],
+        wishlist: [],
+      };
     default:
       return state;
   }
