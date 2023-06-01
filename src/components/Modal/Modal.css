@@ -10,7 +10,8 @@
 
 .modal-content{
   width: 300px;
-  background-color: var(--bg-color-primary);
+  overflow: hidden;
+  background-color: #fff;
   border-radius: 0.3rem;
 }
 
