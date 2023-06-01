@@ -6,9 +6,8 @@ export const Filters = () => {
   const {
     categories,
     products,
-    filters: { sortBy, ratingRange, inStock, categoryType },
-    drawerOpen,
-    setDrawerOpen,
+    filters: { sortBy, ratingRange, inStock, categoryType, onSale },
+    setShowModal,
     dispatch,
   } = useDataContext();
 
@@ -27,11 +26,7 @@ export const Filters = () => {
   };
 
   return (
-    <aside
-      className={`filter__container ${
-        drawerOpen ? "drawer-open" : "drawer-close"
-      }`}
-    >
+    <div className="filter__container">
       <div className="filter-header">
         <span className="filter-title" role="heading">
           Filters
@@ -41,7 +36,7 @@ export const Filters = () => {
           role="button"
           onClick={() => {
             onChangeHandler(ACTION_TYPE.CLEAR_FILTER, products);
-            setDrawerOpen(!drawerOpen);
+            setShowModal(false);
           }}
         >
           Clear All
@@ -89,8 +84,15 @@ export const Filters = () => {
           />
         </div>
         <div className="rating-limit">
-          <span>1.0</span>
-          <span>5.0</span>
+          <span role="label" htmlFor="ratingRange">
+            1.0
+          </span>
+          <span role="label" htmlFor="ratingRange">
+            2.5
+          </span>
+          <span role="label" htmlFor="ratingRange">
+            5.0
+          </span>
         </div>
       </div>
       <div className="filter-category">
@@ -137,12 +139,22 @@ export const Filters = () => {
               name="category"
               className="check-input"
               onChange={() => dispatch({ type: ACTION_TYPE.TOGGLE_STOCK })}
-              checked={inStock}
+              checked={!inStock}
             />
-            <span className="select-desc">Only In Stock</span>
+            <span className="select-desc">Include Out Of Stock</span>
+          </label>
+          <label htmlFor="category" className="select-label">
+            <input
+              type="checkbox"
+              name="category"
+              className="check-input"
+              onChange={() => dispatch({ type: ACTION_TYPE.TOGGLE_SALE })}
+              checked={onSale}
+            />
+            <span className="select-desc">Only On Sale</span>
           </label>
         </div>
       </div>
-    </aside>
+    </div>
   );
 };

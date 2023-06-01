@@ -13,7 +13,8 @@ const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, initialState);
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  // const [drawerOpen, setDrawerOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetchAllCategories(dispatch);
@@ -22,7 +23,7 @@ const DataProvider = ({ children }) => {
 
   return (
     <DataContext.Provider
-      value={{ ...state, drawerOpen, setDrawerOpen, dispatch }}
+      value={{ ...state, showModal, setShowModal, dispatch }}
     >
       {children}
     </DataContext.Provider>

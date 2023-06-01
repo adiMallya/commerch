@@ -37,7 +37,7 @@ export function Home() {
       </section>
       <section className="home__section featured">
         <h2 className="text-center">categories to bag</h2>
-        <div className="featured-categories">
+        <div className="featured-categories grid-view">
           {categories &&
             categories.map(({ _id, categoryName, description, img }) => (
               <article

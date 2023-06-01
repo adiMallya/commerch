@@ -19,6 +19,7 @@ export function getFilteredData(
   ratingRange,
   selectedCategory,
   inStock,
+  onSale,
   searchValue
 ) {
   let filteredData = [];
@@ -41,6 +42,8 @@ export function getFilteredData(
       selectedCategory.every((cat) => cat === item.category)
     );
   }
+
+  filteredData = filteredData.filter((item) => (onSale ? item.onSale : true));
 
   return filteredData;
 }

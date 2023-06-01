@@ -6,8 +6,9 @@ export const initialState = {
   filters: {
     searchValue: "",
     sortBy: null,
-    inStock: false,
-    ratingRange: 3.5,
+    inStock: true,
+    onSale: false,
+    ratingRange: 1.5,
     categoryType: [],
   },
   cart: localStorage.getItem("user")?.cart ?? [],
@@ -67,6 +68,14 @@ export function dataReducer(state, { type, payload }) {
           inStock: !state.filters.inStock,
         },
       };
+    case ACTION_TYPE.TOGGLE_SALE:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          onSale: !state.filters.onSale,
+        },
+      };
     case ACTION_TYPE.TOGGLE_CATEGORY:
       const isChecked = payload.checked;
       const categoryValue = payload.value;
@@ -86,8 +95,9 @@ export function dataReducer(state, { type, payload }) {
         filters: {
           searchValue: "",
           sortBy: null,
-          inStock: false,
-          ratingRange: 3.5,
+          inStock: true,
+          onSale: false,
+          ratingRange: 1.5,
           categoryType: [],
         },
       };

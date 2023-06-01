@@ -84,29 +84,6 @@
   width: 100%;
   padding-bottom: 0.25rem;
 }
-/* Hamburger toggler */
-.navbar-toggler{
-  z-index: var(--z-index-6);
-  cursor: pointer;
-}
-.navbar-toggler .line1{
-  height: 0.125rem;
-  width: 1.5rem;
-  background-color: var(--bg-color-secondary-2);
-  margin: 0.313rem 0;
-}
-.navbar-toggler .line2{
-  height: 0.125rem;
-  width: 1.5rem;
-  background-color: var(--bg-color-secondary-2);
-  margin: 0.313rem 0;
-}
-.navbar-toggler .line3{
-  height: 0.125rem;
-  width: 1.5rem;
-  background-color: var(--bg-color-secondary-2);
-  margin: 0.313rem 0;
-}
 /* Login button */
 .login-btn{
   display: inline-block;
