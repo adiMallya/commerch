@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaMinus, FaPlus } from "react-icons/fa";
 
@@ -14,6 +15,8 @@ export const CartCard = ({ product }) => {
   const { token } = useAuthContext();
   const { wishlist, dispatch } = useDataContext();
 
+  const [btnDisabled, setBtnDisabled] = useState(false);
+
   const { _id, img, brand, name, price, originalPrice, qty } = product;
 
   const percentageOff = getDiscountPercentage(price, originalPrice);
@@ -23,16 +26,16 @@ export const CartCard = ({ product }) => {
   const removeFromCartHandler = () =>
     removeFromCart(product._id, token, dispatch);
 
-  const moveToWishlistHandler = () => {
+  const saveToWishlistHandler = () => {
     inWishlist
       ? navigate("/wishlist")
-      : addToWishlist(token, product, dispatch);
+      : addToWishlist(token, product, dispatch, setBtnDisabled);
   };
 
   const updateItemQtyHandler = (type) => {
     product.qty < 1
       ? removeFromCart(product._id, token, dispatch)
-      : updateQtyInCart(product._id, token, type, dispatch);
+      : updateQtyInCart(product._id, token, type, dispatch, setBtnDisabled);
   };
 
   return (
@@ -57,6 +60,7 @@ export const CartCard = ({ product }) => {
             <button
               className="btn qty-btn"
               onClick={() => updateItemQtyHandler("decrement")}
+              disabled={btnDisabled}
             >
               <FaMinus />
             </button>
@@ -64,6 +68,7 @@ export const CartCard = ({ product }) => {
             <button
               className="btn qty-btn"
               onClick={() => updateItemQtyHandler("increment")}
+              disabled={btnDisabled}
             >
               <FaPlus />
             </button>
@@ -79,9 +84,10 @@ export const CartCard = ({ product }) => {
         </button>
         <button
           className="btn btn--primary-outline"
-          onClick={moveToWishlistHandler}
+          onClick={saveToWishlistHandler}
+          disabled={btnDisabled}
         >
-          {inWishlist ? "Already In Wishlist" : "Move To Wishlist"}
+          {inWishlist ? "Already In Wishlist" : "Save To Wishlist"}
         </button>
       </div>
     </div>
