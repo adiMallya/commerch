@@ -74,8 +74,10 @@ export const updateQtyInCart = async (
   productId,
   encodedToken,
   actionType,
-  dispatch
+  dispatch,
+  setBtnState
 ) => {
+  setBtnState && setBtnState(() => true);
   try {
     const {
       status,
@@ -99,4 +101,5 @@ export const updateQtyInCart = async (
     });
     console.error(error);
   }
+  setBtnState && setBtnState(() => false);
 };

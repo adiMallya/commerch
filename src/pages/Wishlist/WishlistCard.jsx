@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { GrClose } from "react-icons/gr";
 
 import { useAuthContext, useDataContext } from "../../contexts";
 import { ACTION_TYPE, getDiscountPercentage, isItemInCart } from "../../utils";
@@ -35,7 +35,6 @@ export const WishlistCard = ({ product }) => {
       });
     } else {
       addToCart(token, product, dispatch, setBtnDisabled);
-      removeFromWishlist(product._id, token, dispatch);
     }
   };
 
@@ -58,7 +57,7 @@ export const WishlistCard = ({ product }) => {
             role="button"
             onClick={removeFromWishlistHandler}
           >
-            <AiOutlineCloseCircle title="Remove" />
+            <GrClose title="Remove" />
           </span>
 
           <span className="badge--rating">
@@ -84,7 +83,7 @@ export const WishlistCard = ({ product }) => {
           onClick={moveToCartHandler}
           disabled={btnDisabled}
         >
-          Move To Bag
+          Add To Bag
         </button>
         {!inStock && (
           <div className="overlay-text">
