@@ -7,7 +7,6 @@ export const Filters = () => {
     categories,
     products,
     filters: { sortBy, ratingRange, inStock, categoryType, onSale },
-    drawerOpen,
     setShowModal,
     dispatch,
   } = useDataContext();
