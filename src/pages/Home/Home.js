@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Footer } from "../../components";
 import { useDataContext } from "../../contexts";
+import { useEffect } from "react";
 import { ACTION_TYPE } from "../../utils";
 
 import Hero from "../../assets/hero-banner.jpg";
@@ -17,6 +18,10 @@ export function Home() {
     });
     navigate("/products");
   };
+
+  useEffect(() => {
+    document.title = "commerch";
+  }, []);
 
   return (
     <main className="page">

@@ -64,8 +64,8 @@ export function makeServer({ environment = "development" } = {}) {
           address: [
             {
               _id: uuid(),
-              name: "Saket Ram",
-              street: "#1/9, 4th Main Road, KD Nagar",
+              name: "Adithya Mallya",
+              street: "#1/9, 4th Main Road, Azad Nagar",
               city: "Mumbai",
               state: "Maharashtra",
               pincode: "326789",

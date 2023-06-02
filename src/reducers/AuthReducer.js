@@ -2,7 +2,7 @@ import { ACTION_TYPE } from "../utils";
 
 export const initialAuthState = {
   token: localStorage.getItem("token"),
-  user: localStorage.getItem("user"),
+  user: JSON.parse(localStorage.getItem("user")),
 };
 
 export function authReducer(state, { type, payload }) {

@@ -40,7 +40,7 @@ export function Cart() {
             {cartIsNotEmpty ? (
               cart.map((item) => <CartCard key={item._id} product={item} />)
             ) : (
-              <div className="">
+              <div className="cart__fallback">
                 <img src={ShopBag} alt="bag-image" className="img-res" />
                 <p className="text-center">
                   There is nothing in your bag. Let's add some items.

@@ -33,7 +33,7 @@ export function Login() {
 
   const loginAsGuest = () => {
     setFormData((form) => ({
-      email: "testmenow@commerch.in",
+      email: "guest@commerch.in",
       password: "P@ssw0rd",
     }));
   };
