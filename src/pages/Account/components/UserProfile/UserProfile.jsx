@@ -13,8 +13,16 @@ export const UserProfile = () => {
   const logOutUser = () => {
     authDispatch({ type: ACTION_TYPE.LOG_OUT });
     dataDispatch({ type: ACTION_TYPE.LOG_OUT });
+    dataDispatch({
+      type: ACTION_TYPE.SHOW_TOAST,
+      payload: { type: "success", msg: "Logged Out. See you soon!" },
+    });
     navigate("/");
-    document.documentElement.scrollTop = 0;
+    dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: true });
+    setTimeout(() => {
+      document.documentElement.scrollTop = 0;
+      dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: false });
+    }, 1000);
   };
 
   return (
