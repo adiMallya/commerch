@@ -37,7 +37,7 @@ export const UserProfile = () => {
           <span>{email}</span>
         </div>
       </div>
-      <button className="btn btn--secondary-outline" onClick={logOutUser}>
+      <button className="btn btn--primary-outline" onClick={logOutUser}>
         Log Out
       </button>
     </>
