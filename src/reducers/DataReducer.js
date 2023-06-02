@@ -11,9 +11,9 @@ export const initialState = {
     ratingRange: 1.5,
     categoryType: [],
   },
-  cart: localStorage.getItem("user")?.cart ?? [],
-  wishlist: localStorage.getItem("user")?.wishlist ?? [],
-  address: localStorage.getItem("user")?.address ?? [],
+  cart: JSON.parse(localStorage.getItem("user"))?.cart ?? [],
+  wishlist: JSON.parse(localStorage.getItem("user"))?.wishlist ?? [],
+  address: JSON.parse(localStorage.getItem("user"))?.address ?? [],
   toast: {
     type: "info",
     msg: "",
