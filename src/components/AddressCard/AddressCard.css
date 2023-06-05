@@ -1,0 +1,18 @@
+.address__container {
+    margin: 0.625rem 0;
+    padding: 1rem;
+    background-color: var(--bg-color-primary);
+    box-shadow: #d6d6d6 0px 2px 15px 0px;
+    line-height: 1.1rem;
+    text-transform: capitalize;
+}
+
+.address-header {
+    font-weight: var(--font-semibold);
+}
+
+.address__container .btn {
+    margin: 0.2rem 0.625rem 0 0;
+    /* width: 15rem; */
+    font-size: 0.85rem;
+}
