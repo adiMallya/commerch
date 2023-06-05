@@ -4,3 +4,5 @@ export { Toast } from "./Toast/Toast";
 export { Modal } from "./Modal/Modal";
 export { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 export { Footer } from "./Footer/Footer";
+export { AddressCard } from "./AddressCard/AddressCard";
+export { AddressForm } from "./AddressForm/AddressForm";
