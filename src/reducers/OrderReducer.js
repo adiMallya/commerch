@@ -26,7 +26,7 @@ export function orderReducer(state, { type, payload }) {
     case ACTION_TYPE.CLEAR_PRICE:
       return {
         ...state,
-        orderPrice: { ...initialState },
+        orderPrice: { ...initialOrderState.orderPrice },
       };
     default:
       return state;

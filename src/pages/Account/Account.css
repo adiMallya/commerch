@@ -1,17 +1,25 @@
-.account__container{
+.account__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
 }
 
-.tabs{
+.account__container .list {
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+  max-height: 46vh;
+  overflow-y: scroll;
+}
+
+.tabs {
   display: flex;
   flex-wrap: wrap;
   width: 350px;
   margin-top: 0.5rem;
 }
-.tabs label{
+
+.tabs label {
   flex-wrap: wrap;
   padding: 0.5rem 2rem;
   width: 50%;
@@ -22,7 +30,7 @@
   cursor: pointer;
 }
 
-.tabs .tab{
+.tabs .tab {
   display: none;
   order: 9;
   width: 100%;
@@ -30,26 +38,29 @@
   border: 1px solid #d6d6d6;
   background-color: var(--bg-color-primary);
 }
-.tab--header{
+
+.tab--header {
   font-size: 1.2rem;
   font-weight: var(--font-semibold);
   padding-bottom: 0.3rem;
   border-bottom: 1px solid #d6d6d6;
 }
 
-.tabs input[type="radio"]{
+.tabs input[type="radio"] {
   display: none;
 }
-.tabs input[type="radio"]:checked+label{
+
+.tabs input[type="radio"]:checked+label {
   background-color: var(--secondary-color);
 }
-.tabs input[type="radio"]:checked+label+.tab{
+
+.tabs input[type="radio"]:checked+label+.tab {
   display: flex;
   flex-direction: column;
 }
 
 @media screen and (min-width: 768px) {
-  .tabs{
+  .tabs {
     width: 400px;
   }
 }

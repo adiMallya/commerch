@@ -2,16 +2,31 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { useDataContext, useOrderContext } from "../../contexts";
+import { ACTION_TYPE } from "../../utils";
 import { AddressModal } from "./components/AddressModal";
-import "./Checkout.css";
 import { CheckoutPrice } from "./components/CheckoutPrice";
+import "./Checkout.css";
 
 export function Checkout() {
   const navigate = useNavigate();
-  const { cart, address } = useDataContext();
-  const { orderAddress, orderPrice } = useOrderContext();
+  const { cart, address, dispatch: dataDispatch } = useDataContext();
+  const { orderAddress, orderPrice, dispatch: orderDispatch } = useOrderContext();
 
   const [showModal, setShowModal] = useState(false);
+
+  const placeOrder = () => {
+    dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: true });
+    dataDispatch({ type: ACTION_TYPE.CLEAR_CART });
+    orderDispatch({ type: ACTION_TYPE.CLEAR_PRICE });
+    setTimeout(() => {
+      dataDispatch({
+        type: ACTION_TYPE.SHOW_TOAST,
+        payload: { type: "success", msg: "Order Placed! Shipping soon." },
+      });
+      navigate("/");
+      dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: false });
+    }, 1000);
+  };
 
   useEffect(() => {
     cart.length === 0 && navigate("/products");
@@ -50,7 +65,7 @@ export function Checkout() {
               </div>
             </div>
           </section>
-          <CheckoutPrice cart={cart} priceDetails={orderPrice} />
+          <CheckoutPrice cart={cart} priceDetails={orderPrice} checkoutBtn={placeOrder} />
         </div>
       </div>
       <AddressModal

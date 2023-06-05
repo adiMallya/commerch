@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import "./Account.css";
+
 import { UserProfile } from "./components/UserProfile/UserProfile";
-import { Addresses } from "./components/Addresses/Addresses";
+import { Addresses } from "./components/Addresses";
+import "./Account.css";
 
 export function Account() {
   const [selectTab, setSelectTab] = useState(true);

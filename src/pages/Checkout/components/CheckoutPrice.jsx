@@ -1,4 +1,4 @@
-export const CheckoutPrice = ({ cart, priceDetails }) => {
+export const CheckoutPrice = ({ cart, priceDetails, checkoutBtn }) => {
   const { cartPrice, discount, convenienceFee, totalAmt } = priceDetails;
 
   return (
@@ -33,7 +33,10 @@ export const CheckoutPrice = ({ cart, priceDetails }) => {
         <span className="price-total">{`₹${totalAmt}`}</span>
       </div>
       <div className="cta-container">
-        <button className="btn btn--primary-solid checkout-btn">
+        <button
+          className="btn btn--primary-solid checkout-btn"
+          onClick={checkoutBtn}
+        >
           Continue
         </button>
       </div>
