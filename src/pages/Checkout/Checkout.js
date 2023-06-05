@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { useDataContext, useOrderContext } from "../../contexts";
 import { AddressModal } from "./components/AddressModal";
-import "./Checkout.css";
 import { CheckoutPrice } from "./components/CheckoutPrice";
+import "./Checkout.css";
 
 export function Checkout() {
   const navigate = useNavigate();
