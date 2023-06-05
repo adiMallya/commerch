@@ -17,12 +17,6 @@ export const loginService = async (
     });
 
     if (status === 200) {
-      // const user = {
-      //   user: foundUser,
-      //   token: encodedToken,
-      // };
-      // localStorage.setItem("user", JSON.stringify(user));
-      // return user;
       authDispatch({ type: ACTION_TYPE.SET_JWT_TOKEN, payload: encodedToken });
       authDispatch({ type: ACTION_TYPE.SET_USER, payload: foundUser });
 
@@ -34,6 +28,10 @@ export const loginService = async (
       dataDispatch({
         type: ACTION_TYPE.SET_ADDRESS,
         payload: foundUser.address,
+      });
+      dataDispatch({
+        type: ACTION_TYPE.SHOW_TOAST,
+        payload: { type: "success", msg: `Hi, ${foundUser.firstName}!. Continue shopping.`}
       });
     }
   } catch (error) {
@@ -62,9 +60,6 @@ export const signUpService = async (
     });
 
     if (status === 201) {
-      // const user = { user: createdUser, token: encodedToken };
-      // localStorage.setItem("user", JSON.stringify(user));
-      // return user;
       authDispatch({ type: ACTION_TYPE.SET_JWT_TOKEN, payload: encodedToken });
       authDispatch({ type: ACTION_TYPE.SET_USER, payload: createdUser });
 
@@ -76,6 +71,10 @@ export const signUpService = async (
       dataDispatch({
         type: ACTION_TYPE.SET_ADDRESS,
         payload: createdUser.address,
+      });
+      dataDispatch({
+        type: ACTION_TYPE.SHOW_TOAST,
+        payload: { type: "success", msg: `Welcome, ${createdUser.firstName}!. Start shopping now.`}
       });
     }
   } catch (error) {
