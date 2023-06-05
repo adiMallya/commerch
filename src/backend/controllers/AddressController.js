@@ -100,3 +100,51 @@ export const removeAddressHandler = function (schema, request) {
     );
   }
 };
+
+/**
+ * This handler handles removing an address from user.
+ * send POST Request at /api/user/address/:addressId
+ *
+ * */
+
+export const updateAddressHandler = function (schema, request) {
+  const userId = requiresAuth.call(this, request);
+  try {
+    if (!userId) {
+      new Response(
+        404,
+        {},
+        {
+          errors: ["The email you entered is not Registered. Not Found error"],
+        }
+      );
+    }
+    let userAddresses = schema.users.findBy({ _id: userId }).address;
+    const addressId = request.params.addressId;
+
+    const { address: { name, street, city, state, pincode, phno } } = JSON.parse(request.requestBody);
+
+    userAddresses.forEach((address) => {
+      if (address._id === addressId) {
+        address.name = name;
+        address.street = street;
+        address.city = city;
+        address.state = state;
+        address.pincode = pincode;
+        address.phno = phno;
+        address.updatedAt = formatDate();
+      }
+    });
+
+    this.db.users.update({ _id: userId }, { address: userAddresses });
+    return new Response(200, {}, { address: userAddresses });
+  } catch (error) {
+    return new Response(
+      500,
+      {},
+      {
+        error,
+      }
+    );
+  }
+};
