@@ -11,7 +11,6 @@ import {
   Checkout,
   Home,
 } from "./pages";
-import Mockman from "mockman-js";
 import { Loader, Navbar, Toast, PrivateRoute } from "./components";
 import "./styles.css";
 import { useDataContext } from "./contexts/DataContext";
@@ -62,7 +61,6 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/mockman" element={<Mockman />} />
       </Routes>
     </div>
   );
