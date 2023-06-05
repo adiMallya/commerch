@@ -4,6 +4,7 @@
 One Stop For All Your Cool Merch.</br>
 <!-- <img width="220px" src="" alt="mylogo"/> -->
 <!-- </br> Ask what you want to and let the community respond to help you. -->
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2041771e-5503-4dd4-8423-120c2bc7b3b7/deploy-status)] (https://app.netlify.com/sites/commerch/deploys)
 </p><br>
 
 ## Getting Started :heavy_check_mark:
