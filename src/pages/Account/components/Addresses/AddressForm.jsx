@@ -1,14 +1,11 @@
-import { useState } from "react";
 import { Modal } from "../../../../components";
 import { useAuthContext, useDataContext } from "../../../../contexts";
-import { ACTION_TYPE, addrFormState } from "../../../../utils";
-import { addNewAddress } from "../../../../services";
+import { addrFormState } from "../../../../utils";
+import { addNewAddress, updateAddress } from "../../../../services";
 
-export const AddressForm = ({ showForm, closeForm }) => {
+export const AddressForm = ({ showForm, formData, setFormData, closeForm }) => {
   const { token } = useAuthContext();
   const { dispatch } = useDataContext();
-
-  const [formData, setFormData] = useState(addrFormState);
 
   const fillFormWithValue = (event) => {
     const fieldName = event.target.getAttribute("name");
@@ -21,18 +18,17 @@ export const AddressForm = ({ showForm, closeForm }) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    addNewAddress(token, formData, dispatch);
-    dispatch({
-      type: ACTION_TYPE.SHOW_TOAST,
-      payload: { type: "success", msg: "Saved your Address" },
-    });
+    formData._id ?
+      updateAddress(token, formData, dispatch)
+      :
+      addNewAddress(token, formData, dispatch);
+
     closeForm();
     setFormData(addrFormState);
   };
 
   const cancelHandler = (event) => {
     event.preventDefault();
-    setFormData(addrFormState);
     closeForm();
   };
 
@@ -104,7 +100,7 @@ export const AddressForm = ({ showForm, closeForm }) => {
               Cancel
             </button>
             <button className="btn btn--primary-solid" type="submit">
-              Save
+              {formData._id ? "Update" : "Save"}
             </button>
           </div>
         </form>
