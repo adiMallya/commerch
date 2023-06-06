@@ -41,7 +41,7 @@ The server would start on [localhost:3000](http://localhost:3000/)
 - [x] Wishlist management
 - [x] Cart(bag) management
 - [x] Address management
-- [] Checkout(WIP)
+- [ ] Checkout(WIP)
 
 ## Built with
 
