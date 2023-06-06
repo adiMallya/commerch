@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FaSearch, FaHeart, FaUser } from "react-icons/fa";
-import { RiShoppingBag2Fill, RiCompassDiscoverFill } from "react-icons/ri";
+import { FaSearch, FaHeart, FaUser, FaCompass } from "react-icons/fa";
+import { RiShoppingBag2Fill } from "react-icons/ri";
 
 import { useDataContext, useAuthContext } from "../../contexts";
 import { ACTION_TYPE } from "../../utils";
@@ -35,11 +35,12 @@ export const Navbar = () => {
               </h3>
             </Link>
           </div>
-          <div className="nav-section__items">
+          {/* <div className="nav-section__items">
             <Link className="link-no-style nav-icon-link" to="/products">
-              <span className="nav-icon">Shop</span>
+              <span className="nav-icon shop-tab">Shop</span>
+              <FaCompass className="nav-icon shop-icon" title="Explore" />
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className="nav-section search-container">
           <form onSubmit={(e) => e.preventDefault()}>
@@ -94,7 +95,7 @@ export const Navbar = () => {
         </ul>
       </nav>
       <div className="search-container search-mob">
-        <form action="#">
+        <form onSubmit={(e) => e.preventDefault()}>
           <label htmlFor="search" className="search-bar">
             <span className="search-bar-btn" typeof="submit">
               <FaSearch title="Search" />
@@ -104,6 +105,9 @@ export const Navbar = () => {
               className="search-bar-input"
               placeholder="Type to search"
               name="search"
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={searchHandler}
+              value={input}
             />
           </label>
         </form>
