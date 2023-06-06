@@ -6,45 +6,49 @@
 @import url("https://byoti-css.netlify.app/components/cards.css");
 @import './pages/Product/components/ProductCard/ProductCard.css';
 
-:root{
+:root {
   --primary-color: #2dd4bf;
   --secondary-color: #e9e9ed;
   --primary-text-color: #fff;
-  --secondary-text-color: #3f3947;;
+  --secondary-text-color: #3f3947;
+  ;
 
   --bg-color-primary: #f9fafb;
   --bg-color-secondary: #f1f5f9;
   --bg-color-secondary-2: #3f3947;
-  --bg-color-gradient:#4ac29a; /* fallback for old browsers */
-  
+  --bg-color-gradient: #4ac29a;
+  /* fallback for old browsers */
+
   --font-light: 400;
   --font-semibold: 600;
   --font-bold: bold;
 
   --z-index-1: 1;
-	--z-index-2: 2;
-	--z-index-3: 3;
-	--z-index-4: 4;
-	--z-index-5: 5;
-	--z-index-6: 6;
+  --z-index-2: 2;
+  --z-index-3: 3;
+  --z-index-4: 4;
+  --z-index-5: 5;
+  --z-index-6: 6;
   --z-index-7: 7;
   --z-index-8: 8;
-	--z-index-9: 9;
+  --z-index-9: 9;
 }
 
-*, *::before, *::after{
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-sans; 
+  font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-sans;
   word-wrap: break-word;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
-.App{
+.App {
   overflow-x: hidden;
 }
 
@@ -54,33 +58,36 @@ html{
   flex-direction: column;
 }
 
-.page-heading{
+.page-heading {
   border-bottom: 2px solid var(--primary-color);
 }
 
-.display-flex{
+.display-flex {
   display: flex;
   flex-wrap: wrap;
 }
-.display-flex-column{
+
+.display-flex-column {
   display: flex;
   flex-direction: column;
 }
-.flex-items{
+
+.flex-items {
   margin: 1rem 1rem 1rem 0;
 }
-.justify-between{
+
+.justify-between {
   justify-content: space-between;
 }
 
-.row{
+.row {
   display: flex;
   flex-grow: 1;
   margin-bottom: 1rem;
   width: 100%;
 }
 
-.grid-view{
+.grid-view {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
@@ -88,37 +95,44 @@ html{
 }
 
 /* Extras */
-input[type='radio'], input[type='checkbox'], input[type='range'] {
+input[type='radio'],
+input[type='checkbox'],
+input[type='range'] {
   accent-color: var(--primary-color);
 }
 
-a:active, a:focus, button:focus {
+a:active,
+a:focus,
+button:focus {
   box-shadow: none !important;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 5px;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
   border-radius: 9px;
   background-color: var(--bg-color-secondary-2);
   background-clip: content-box;
 }
 
-.background--gradient{
-  background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #BDFFF3, #4AC29A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.background--gradient {
+  background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #BDFFF3, #4AC29A);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* Media queries */
-@media  screen and (min-width:768px) {
-  .grid-view{
+@media screen and (min-width:768px) {
+  .grid-view {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media screen and (min-width: 1024px){
-  .grid-view{
-    grid-template-columns: repeat(4, 1fr);
+@media screen and (min-width: 1024px) {
+  .grid-view {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
