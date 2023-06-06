@@ -32,12 +32,6 @@ export const CartCard = ({ product }) => {
       : addToWishlist(token, product, dispatch, setBtnDisabled);
   };
 
-  const updateItemQtyHandler = (type) => {
-    product.qty < 1
-      ? removeFromCart(product._id, token, dispatch)
-      : updateQtyInCart(product._id, token, type, dispatch, setBtnDisabled);
-  };
-
   return (
     <div key={_id} className="cart-card">
       <div className="card-horizontal">
@@ -59,7 +53,17 @@ export const CartCard = ({ product }) => {
           <div className="cart-qty">
             <button
               className="btn qty-btn"
-              onClick={() => updateItemQtyHandler("decrement")}
+              onClick={() =>
+                qty > 1
+                  ? updateQtyInCart(
+                      _id,
+                      token,
+                      "decrement",
+                      dispatch,
+                      setBtnDisabled
+                    )
+                  : removeFromCart(_id, token, dispatch)
+              }
               disabled={btnDisabled}
             >
               <FaMinus />
@@ -67,7 +71,15 @@ export const CartCard = ({ product }) => {
             <span className="qty-value">{qty}</span>
             <button
               className="btn qty-btn"
-              onClick={() => updateItemQtyHandler("increment")}
+              onClick={() =>
+                updateQtyInCart(
+                  _id,
+                  token,
+                  "increment",
+                  dispatch,
+                  setBtnDisabled
+                )
+              }
               disabled={btnDisabled}
             >
               <FaPlus />
