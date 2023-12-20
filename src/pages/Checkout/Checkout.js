@@ -5,6 +5,7 @@ import { useDataContext, useOrderContext } from "../../contexts";
 import { ACTION_TYPE } from "../../utils";
 import { AddressModal } from "./components/AddressModal";
 import { CheckoutPrice } from "./components/CheckoutPrice";
+import usePaymentGateway from "../../hooks/usePaymentGateway";
 import "./Checkout.css";
 
 export function Checkout() {
@@ -13,19 +14,20 @@ export function Checkout() {
   const { orderAddress, orderPrice, dispatch: orderDispatch } = useOrderContext();
 
   const [showModal, setShowModal] = useState(false);
+  const { displayRazorpay } = usePaymentGateway();
 
-  const placeOrder = () => {
+  const placeOrder = async () => {
     dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: true });
-    dataDispatch({ type: ACTION_TYPE.CLEAR_CART });
-    orderDispatch({ type: ACTION_TYPE.CLEAR_PRICE });
-    setTimeout(() => {
+
+    if (orderAddress?._id) {
+      await displayRazorpay();
+    } else {
       dataDispatch({
-        type: ACTION_TYPE.SHOW_TOAST,
-        payload: { type: "success", msg: "Order Placed! Shipping soon." },
+        type: ACTION_TYPE.SHOW_ERROR, payload: "Please add/select Address to deliver to."
       });
-      navigate("/");
-      dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: false });
-    }, 1000);
+    }
+
+    dataDispatch({ type: ACTION_TYPE.SHOW_LOADER, payload: false });
   };
 
   useEffect(() => {
