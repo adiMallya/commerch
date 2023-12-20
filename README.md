@@ -41,13 +41,14 @@ The server would start on [localhost:3000](http://localhost:3000/)
 - [x] Wishlist management
 - [x] Cart(bag) management
 - [x] Address management
-- [ ] Checkout(WIP)
+- [x] Checkout + Payment gateway
 
 ## Built with
 
 - ReactJs
 - React Router v6
 - Mock backend
+- Razorpay
 
 ## ⚠️ Note
 
